@@ -1,0 +1,92 @@
+body {
+   background-color: rgb(175, 199, 250);
+}
+
+@font-face {
+font-family: "chalkfont"; 
+src: url("ChalkStick-WjAv.ttf")
+}
+
+.header { 
+    font-size: 100px;
+    color:blue; 
+    margin-left: 15%;
+    font-family: "chalkfont"
+}
+
+.backgroundpic{
+    position:relative; 
+   width: 1500px;
+}
+
+.mainwrapper{
+    position: absolute; 
+    height:400px;
+    display:grid; 
+    grid-template-columns: 300px 300px 300px 300px; 
+    grid-template-rows: repeat(10, 1fr);
+    z-index: 2;
+    top:15%;
+    left:5%;
+    gap:5px; 
+
+}
+
+.titlewrapper{
+    display:grid; 
+    position: relative; 
+    width: 1000px; 
+    left:-80%;
+
+   height: 600px; 
+   top:12%; 
+}
+
+
+
+.namecolumn, .tuition, .class {
+
+    display:grid; 
+    border-bottom: 2px solid rgb(159, 227, 236);
+    position:absolute; 
+    left:10%;
+    width:200px; 
+    height:40px; 
+    z-index: 4;
+    font-size: 34px;
+    color:white; 
+    font-family: "chalkfont"; 
+    top:-10%; 
+
+}
+
+.namecolumn {
+    left:0%; 
+}
+
+.studentname{
+    position:relative; 
+    color:white; 
+    font-size: 24px; 
+    font-family: "chalkfont"; 
+    border-bottom: 2px solid rgb(55, 55, 83);
+   padding-top: 30px;
+}
+
+.changepage{
+    position:absolute; 
+    font-family: "chalkfont";
+    font-size: 30px;
+    color:white; 
+    right:-5%;
+    top:10%;
+}
+
+.tutionprice{
+position: relative; 
+font-family: "chalkfont";
+font-size: 30px;
+color:white; 
+padding-top: 20px;
+left:15%; 
+}
