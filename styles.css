@@ -1,5 +1,5 @@
 body {
-   background-color: rgb(175, 199, 250);
+   background-color: #95a8a0
 }
 
 @font-face {
@@ -78,15 +78,81 @@ src: url("ChalkStick-WjAv.ttf")
     font-family: "chalkfont";
     font-size: 30px;
     color:white; 
-    right:-5%;
-    top:10%;
+   left:70%;
+    top:25%;
+    z-index: 9;
 }
 
-.tutionprice{
+.tutionprice, .studentlevel{
 position: relative; 
 font-family: "chalkfont";
 font-size: 30px;
 color:white; 
 padding-top: 20px;
 left:15%; 
+}
+
+.addStudentBtn{
+  position:absolute; 
+  left:75%;
+  bottom:0%;
+    width:70px; 
+  height:70px; 
+    background-image: url("./plus.png");
+  background-size: contain;
+  background-color: green;
+  z-index: 7;
+
+
+}
+
+.modalwrapper{
+   display:grid; 
+  grid-template-columns:repeat(5,auto);
+  grid-template-rows: repeat(5,auto);
+    width:1000px; 
+   height:600px ;
+   background-color: rgb(190, 220, 224);
+   z-index: 100;
+   position: relative;
+   margin-left: 15%;
+   margin-top: 5%;
+   
+}
+
+.modalheading{
+
+ font-size: 46px;
+ left:25%;
+ background-color: rgb(224, 224, 202);
+ grid-column: 1/6;
+ height:50px;
+text-align: center;
+
+}
+
+
+
+#newtuition{
+    height:20px;
+}
+
+.checkbutton{
+  
+ background-color: green;
+ grid-column: 2/3;
+
+
+}
+
+
+.deletebtn{
+    padding:0;
+    width:15px;
+    height:15px;
+    background-image: url("delete-button.png");
+    background-size: contain;
+    position: absolute; 
+    right:82%;
+    bottom:70%;
 }
