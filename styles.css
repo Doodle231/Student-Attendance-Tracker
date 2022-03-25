@@ -35,9 +35,10 @@ src: url("ChalkStick-WjAv.ttf")
 .titlewrapper{
     display:grid; 
     position: relative; 
-    width: 1000px; 
+    width: 1200px; 
     left:-80%;
-
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-rows: repeat(12,50px);
    height: 600px; 
    top:12%; 
 }
@@ -49,7 +50,7 @@ src: url("ChalkStick-WjAv.ttf")
     display:grid; 
     border-bottom: 2px solid rgb(159, 227, 236);
     position:absolute; 
-    left:10%;
+    left:5%;
     width:200px; 
     height:40px; 
     z-index: 4;
@@ -64,14 +65,7 @@ src: url("ChalkStick-WjAv.ttf")
     left:0%; 
 }
 
-.studentname{
-    position:relative; 
-    color:white; 
-    font-size: 24px; 
-    font-family: "chalkfont"; 
-    border-bottom: 2px solid rgb(55, 55, 83);
-   padding-top: 30px;
-}
+
 
 .changepage{
     position:absolute; 
@@ -83,13 +77,14 @@ src: url("ChalkStick-WjAv.ttf")
     z-index: 9;
 }
 
-.tutionprice, .studentlevel{
+.tutionprice, .studentlevel, .studentname{
 position: relative; 
 font-family: "chalkfont";
 font-size: 30px;
 color:white; 
 padding-top: 20px;
 left:15%; 
+border-bottom: 2px solid black;
 }
 
 .addStudentBtn{
@@ -147,12 +142,30 @@ text-align: center;
 
 
 .deletebtn{
-    padding:0;
-    width:15px;
-    height:15px;
+    position: relative; 
+    width:24px;
+    height:24px;
     background-image: url("delete-button.png");
     background-size: contain;
-    position: absolute; 
-    right:82%;
-    bottom:70%;
+    z-index: 999;
 }
+
+
+
+
+.deletebtncolumn{
+    display:grid; 
+   position:absolute; 
+    grid-template-rows: repeat(12,50px);
+   background-color: red;
+   width:50px; 
+   margin-left: 20%;
+   
+}
+
+.deletebtn:hover{
+    background-color: rgb(29, 18, 185);
+    width:20px;
+    height:20px;
+    }
+    

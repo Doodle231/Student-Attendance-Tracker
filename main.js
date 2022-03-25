@@ -5,109 +5,145 @@ const nameInputStyle = document.getElementById("newname")
 modalWrapper.style.display = "none"
 
 
-
-let studentArray = []
-
+let studentNameDisplay = document.getElementsByClassName("studentname")
+let studentID = 0 
 
 
 addStudentButton.addEventListener('click', function(){
+
+
+
 
 modalWrapper.style.display = "block"
 
 })
 
 
+/*
+   const updateDeleteButtons = () => {
 
-confirmButton.addEventListener('click', function(){
-    let studentName = document.getElementById("newname").value
-    let studentTuition = document.getElementById("newtuition").value
-    let studentLevel = document.getElementById("classType").value
+  for (let i = 0; i < deleteButton.length; i++) {
+       
+    console.log(deleteButton)
+    
+    deleteButton[0].addEventListener('click', function(){
   
 
-    const createStudent = () => {
-   
-        return {
-          studentName,
-          studentTuition,
-         studentLevel, 
-    
+      
+        })
+
+      }
+   }
+
+*/
+
+
+
           
 
-          addNewStudent (){
+
+
+confirmButton.addEventListener('click', function(){
     
-            // name setup
-            let studentNameDisplay = document.getElementsByClassName("studentname")
-            let deleteButton = document.getElementsByClassName("deletebtn")[0]
-                  
+
+  let studentName = document.getElementById("newname").value
+    let studentTuition = document.getElementById("newtuition").value
+    let studentLevel = document.getElementById("classType").value
+
+
+          let studentNameDisplay =  document.createElement("div")
+          let studentPriceDisplay = document.createElement("div")
+          let studentLevelDisplay = document.createElement("div")
+         
+          
+          studentNameDisplay.classList = "studentname"
+          studentPriceDisplay.classList = "tutionprice"
+          studentLevelDisplay.classList = "studentlevel"
+          
+          let titleWrapper = document.getElementsByClassName("titlewrapper")[0]
+          let deletebtn = document.createElement('Button') 
+          deletebtn.classList = "deletebtn" 
+          
+          titleWrapper.appendChild(studentNameDisplay)
+          titleWrapper.appendChild(studentPriceDisplay)
+          titleWrapper.appendChild(studentLevelDisplay)
+          titleWrapper.appendChild(deletebtn)
+
         
-            for (let i = 0; i < studentNameDisplay.length; i++) {
-            console.log(studentNameDisplay[i].innerHTML)
-             if (studentNameDisplay[i].innerText == "Student Name"){
-               
-              studentNameDisplay[i].innerHTML = this.studentName 
-               studentNameDisplay[i].appendChild(deleteButton)
-              break
-             }
 
-            } 
+        
+
+          studentNameDisplay.innerText = studentName
+          studentPriceDisplay.innerText = studentTuition
+          studentLevelDisplay.innerText = studentLevel
+
+
+
+
+         
+          
+
+          
+          let deleteButton = document.getElementsByClassName("deletebtn")
+           
             
-          // price setup 
-            let studentPriceDisplay = document.getElementsByClassName("tutionprice")
-           
-            for (let i = 0; i < studentPriceDisplay.length; i++) {
+            for (let i = 0; i < deleteButton.length; i++) {
 
-              if (studentPriceDisplay[i].textContent === "none"){
+          
+              let name = document.getElementsByClassName("studentname") 
+              let tutionprice =  document.getElementsByClassName("tutionprice") 
+              let studentLevel = document.getElementsByClassName("studentlevel")
              
-               studentPriceDisplay[i].textContent = this.studentTuition
- 
-                break
-              }
+              deleteButton[i].onclick = function () {
 
-            }
+              deleteButton[i].id = [i]
+              console.log(deleteButton[i].id)
 
-            // level setup
+           const removeElements = () => {
 
-            let studentLevelDisplay = document.getElementsByClassName("studentlevel")
-           
-            for (let i = 0; i < studentLevelDisplay.length; i++) {
-
-              if (studentLevelDisplay[i].textContent === "none"){
              
-               studentLevelDisplay[i].textContent = this.studentLevel
- 
-                break
-              }
-
-            }
-
-
-
-             return this
+             
+           }
+           
+           removeElements()
+            
           }
+
+          
     
-    
+      
+
+
+
         }
-    }
-     
-    
+        
+                  
+         
 
 
-
-
-let student1 = createStudent()
-
-student1.addNewStudent()
-
-
-    
-
-   
     modalWrapper.style.display = "none"
     
     })
     
 
 
-    
-
+ 
    
+  
+ /*
+    let tution = document.getElementsByClassName("tutionprice")  
+    let studentName = document.getElementsByClassName("studentname")
+    let studentLevel = document.getElementsByClassName("studentlevel")  
+        
+
+
+          for (let i = 0; i < deleteButton.length; i++) {
+         console.log(deleteButton[i])
+          deleteButton[i].addEventListener('click', function(){
+      
+           console.log("clicked")
+
+          })
+
+        }
+ */
