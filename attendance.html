@@ -6,98 +6,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Attendance Tracker</title>
 
-    <div class = "header">Student Attendance </div>
+
 
 
 </head>
 <body>
  
 
-    <div class = "mainwrapper">
-        <img class = "backgroundpic" src = "chalkboard.png"></img>
+    <div class = "boardwrapper">
     
-        <div class = "titlewrapper pagetwo">
-        <div class = "namecolumn"> Name</div>
-       
-      
+      <div class = "top">
+    <div class ="studentnametop">Student Name</div>
+    <div class ="hourstotaltop">Hours per month</div>
+    <div class ="leveltop">Level</div>
+    <div class ="joindatetop">Join date</div>
+    <div class ="tuitiontop">Tuition</div>
+  </div>
 
-        
+   <div class = "studentname">Kim Doo Yan</div>
+   <div class = "hourstotal">12</div>
+   <div class ="level">A2</div>
+   <div CLASS = "joindate">December 2, 2021</div>
+   <div class ="tuition">$ 200</div>
+   
+   
+   
+   
+   <img class ="dashboardpic" src ="home.png"></img>
 
-    
-    </div>
-    
-    
-     <div class = "titlewrapper">
-    <div class = "tuition">Tuition</div>
+   
+   
+
+   
+   <img class ="addStudentBtn" src = "add-user 1(1).png" ></img>
+
+
+
+   
+</div>
+
+
+
+<div class ="addstudentmodal">
+<div class ="addbg">
+    <div class ="addhead">Add new student</div>
+    <button class ="close" ></button>
+</div>
+
+
+ <form class = "addstudentform">
+  <input type="studentname" id="studentnameinput" placeholder="student full name"><br>
+
+  <input type="stuenthours" id="monthlyhoursinput" placeholder ="total number of hours per month">
+ 
+ 
+  <select id="levelchoice" >
+    <option value ="choose">Choose student level</option>
+    <option value="PreA1">Pre A1</option>
+    <option value="A1">A1</option>
+    <option value="A2">A2</option>
+    <option value="B1">B1</option>
+    <option value="B2">B2</option>
+
+
+  </select> 
+
+  <input type="number" id="tuitioninput" placeholder="tuition amount per month"><br>
   
+  
+  <select id="agechoice" >
+    <option value = "agerange">Choose student age range</option>
+    <option value="kindy">kindy</option>
+    <option value="elementary">elementary</option>
+    <option value="middleschool">middle school</option>
+    <option value="adult">adult</option>
+  </select>
 
+
+</form> 
+
+<img class ="students" src ="school_kids_02 1.png"></img>
+
+<button class = "confirm">Add Student</button>
+
+
+
+</div>
+
+
+<div class = "dashboard">
+
+  <div class ="dashboardcontent">
+  
+    <div class ="title">Hello Dan!</div>
+    <div class ="hourlywage">Hourly Wage 
+    <div class ="icon"><img class ="iconpic" src ="hour-glass 1.png"></img></div>
+  <h1>40,000</h1>
+  </div>
+  
+  <div class="schoolexpenses">School Expenses 
+<div class ="icon"><img class ="iconpic" src ="expense.png"></img></div>
+<h1>184,000</h1>
+  </div>
+  
+  
+  
+  
+  <div class="adexpenses">Ad Expenses 
+
+    <div class ="icon"><img class ="iconpic" src ="ads 1.png"></img></div>
+    <h1>250,000</h1>
+  
+  </div>
+  
+  <div class="centercontent">
+  
+    <div class ="day">
+  <div class ="dayhead"> Monday</div>
+
+  </div>
+
+
+  <div class="day">Tuesday</div>
+  <div class="day">Wednesday</div>
+  <div class="day">Thursday</div>
+  <div class="day">Friday</div>
+  <div class="day">Saturday</div>
+
+
+  </div>
+
+
+  <div class="monthlyrevenue">Monthly Revenue
+
+    <div class ="icon"><img class ="iconpic" src ="money.png"></img></div>
+    <h1>6,500,000</h1>
+  </div>
+
+
+  <div class="numberofstudents">Number of students
+
+    <div class ="icon"><img class ="iconpic" src ="student.png"></img></div>
+    <h1>25</h1>
+  </div>
+
+
+  <div class="totalteachhours">Total Teaching Hours
+  <div class ="icon"><img class ="iconpic" src ="clock.png"></img></div>
+  <h1>60</h1>
+</div>
+
+  <div class="grossprofit">Gross Profit
+  <div class ="icon"><img class ="iconpic" src ="profits.png"></img></div>
+    <h1>5,534,000</h1>
 
 </div>
     
-    <div class = "titlewrapper">
-    <div class = "class">Class</div>
-   
+<button class ="close" ></button>
+ </div>
+</div>
+
+<div class = "loginpage">
+<div class = "overlay">
+  
+  <input type ="text " class ="usernamesignup" placeholder="make a username"></input>
+  <input type = "text" class = "passwordsignup" placeholder ="make a password"></input>
+  <button class ="signinbutton">Signin</button>
+  <h1>Teacher Login</h1>
+
+<form class ="login">
+  <input type="email" name="email" placeholder="Email" required="">
+  <input type="password" name="password" placeholder="Password" required="">
+<button class ="loginbutton">Login</button>
+</div>
+<img class ="loginbackground" src ="13113 1.png"></img>
+</form>
+
+</div>
+
+<div class ="confirmpopup">
+<div class = "topwrapper">
+  <div class = "popuphead">Confirm Database Entry</div>
+</div>
+<div class ="confirmcontent">
+<h1 class ="boxinstructions">Is the following information correct? If so, 
+  please press confirm to add it to the database. </h1>
+
+
+<div class ="nameconfirm">Student name: </div>
+<div class="hoursconfirm">Total Number of Hours Per Month: </div>
+<div class="levelconfirm">Student Level: </div>
+<div class="tuitionconfirm">Monthly Tuition: </div>
+<div class="rangeconfirm">Student Age Range:</div>
+<button class = "confirmadd">Add Student</button>
+<button class = "canceladd">Cancel </button>
+
 
 
 </div>
 
-    </div>
+</div>
 
+<div class="deletionWarningPopup">
+<div class = "deletionhead">
+  Delete Document Warning
+</div>
+<h1>Are you sure that you want to delete this student? It will be removed from the 
+  database. 
+</h1>
+<button class ="removefrmdb-button">confirm </button>
+<button class ="cancelremovefromdb">cancel </button>
 
+</div>
 
-
-<div class = "modalwrapper">
 
     
-    <div class = "modalheading">Add New Student Information</div>
-
-
-    <div id = "textbox1"> Enter Student Name
-        <input type =" text " id = "newname">
-
-    </div>
-   
-
-
-
-
-    <div id ="textbox2">
-    <label for="classType">Choose Class Name</label>
-    <select name="classType" id="classType">
-      <option value="kindy">Kindy Class</option>
-      <option value="elementary">Elementary Class</option>
-      <option value="middle" selected>Middle School Class</option>
-      <option value="adult">Adult Class</option>
-    </select>
-</div>
-
-
-
-    <div id = "textbox3">Enter tuition Amount
-        <input type = "text " id = "newtuition">
-
-
-    </div>
-
-
-
-<button class = "checkbutton" >Confirm </button>
-
-</div>
-
-
-
-
-
-
-
-        <button class = "changepage">Next Page</div>
-        <button class = "addStudentBtn" ></button>
-    
-
-
-
-
     <link rel="stylesheet" href="styles.css">
    
     <script type="module" src="main.js"></script>

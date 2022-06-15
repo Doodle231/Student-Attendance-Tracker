@@ -1,180 +1,505 @@
 body {
-   background-color: #95a8a0
+
+   background: linear-gradient(162.87deg, #5438FF 11.78%, rgba(253, 250, 179, 0) 133.7%);
+   overflow-y: hidden; 
+   overflow-x:hidden;
+   color:white; 
 }
 
-@font-face {
-font-family: "chalkfont"; 
-src: url("ChalkStick-WjAv.ttf")
-}
 
-.header { 
-    font-size: 100px;
-    color:blue; 
-    margin-left: 15%;
-    font-family: "chalkfont"
-}
 
-.backgroundpic{
-    position:relative; 
-   width: 1500px;
-}
 
-.mainwrapper{
+.boardwrapper{
     position: absolute; 
-    height:400px;
+    height:90%;
+    width:90%;
     display:grid; 
-    grid-template-columns: 300px 300px 300px 300px; 
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(10, 1fr);
     z-index: 2;
-    top:15%;
+    margin-top:2.5%;
     left:5%;
     gap:5px; 
+     background-color: rgb(80, 117, 80);
+     text-align: center;
+     font-size:24px; 
+     justify-items: center;
+     align-items: center;
+     opacity:.9; 
 
 }
 
-.titlewrapper{
+.addstudentmodal{
+    position: absolute; 
+    height:90%;
+    width:90%;
     display:grid; 
-    position: relative; 
-    width: 1200px; 
-    left:-80%;
-    grid-template-columns: 300px 300px 300px 300px;
-    grid-template-rows: repeat(12,50px);
-   height: 600px; 
-   top:12%; 
-}
-
-
-
-.namecolumn, .tuition, .class {
-
-    display:grid; 
-    border-bottom: 2px solid rgb(159, 227, 236);
-    position:absolute; 
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 130px repeat(7, 60px);
+    z-index: 2;
+    margin-top:2.5%;
     left:5%;
-    width:200px; 
-    height:40px; 
-    z-index: 4;
-    font-size: 34px;
-    color:white; 
-    font-family: "chalkfont"; 
-    top:-10%; 
-
+    gap:5px; 
+     background-color:#F5F5F5;
+     text-align: center;
+     font-size:24px; 
+     justify-content: center;
+     
 }
 
-.namecolumn {
-    left:0%; 
-}
-
-
-
-.changepage{
-    position:absolute; 
-    font-family: "chalkfont";
-    font-size: 30px;
-    color:white; 
-   left:70%;
-    top:25%;
-    z-index: 9;
-}
-
-.tutionprice, .studentlevel, .studentname{
-position: relative; 
-font-family: "chalkfont";
-font-size: 30px;
-color:white; 
-padding-top: 20px;
-left:15%; 
-border-bottom: 2px solid black;
-}
-
-.addStudentBtn{
-  position:absolute; 
-  left:75%;
-  bottom:0%;
-    width:70px; 
-  height:70px; 
-    background-image: url("./plus.png");
-  background-size: contain;
-  background-color: green;
-  z-index: 7;
-
-
-}
-
-.modalwrapper{
-   display:grid; 
-  grid-template-columns: 300px 300px 300px; 
-    width:1000px; 
-   height:300px ;
-   background-color: rgb(190, 220, 224);
-   z-index: 100;
-   position: relative;
-   margin-left: 15%;
-   margin-top: 5%;
+.addbg{
+    background-color: #E7E0A9;
+     grid-column: 1/-1;
    
 }
 
-.modalheading{
-
- font-size: 46px;
- left:25%;
- background-color: rgb(224, 224, 202);
- grid-column: 1/6;
- height:50px;
-text-align: center;
-
+.addhead { 
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    grid-column: 1/-1; 
+    text-align: center;
+   margin-top:25px; 
+   
 }
 
 
-
-#newtuition{
-    height:20px;
+input { 
+    margin-left:10%; 
+    margin-top:5%; 
+   
 }
-
-.checkbutton{
-  width:120px; 
-  height:60px; 
-  border-radius: 20px;
- background-color: green;
- grid-column: 2/3;
-margin-left: 50%;
-
-}
-
-
-.deletebtn{
-    position: relative; 
-    width:24px;
-    height:24px;
-    background-image: url("delete-button.png");
-    background-size: contain;
-    z-index: 999;
-}
-
-
-
-
-.deletebtncolumn{
+#studentnameinput{
     display:grid; 
-   position:absolute; 
-    grid-template-rows: repeat(12,50px);
-   background-color: red;
-   width:50px; 
-   margin-left: 20%;
+    grid-row: 1;
+    grid-column:1; 
+    width:50%; 
+    height:30%; 
    
 }
 
-.deletebtn:hover{
-    background-color: rgb(29, 18, 185);
-    width:20px;
-    height:20px;
-    }
-    
-  
-.changepage{
-    background-color: green;
+
+#monthlyhoursinput{
+    display:grid; 
+    grid-row: 2; 
+    width:50%; 
 }
 
-.titlewrapper2 {
+#levelchoice { 
+    display:grid; 
+    grid-row:3; 
+    margin-left:10%;  
+    margin-top:10%; 
+ 
+}
+
+#tuitioninput { 
+    display:grid; 
+    grid-row:6; 
+    margin-top:10%; 
+    width:40%; 
+}
+
+#agechoice{
+    display:grid; 
+    grid-row:5; 
+    margin-left:10%; 
+    margin-top:5%; 
+    
+   
+}
+
+.students{
+    display:grid; 
+    grid-column: 2/-1;
+    height:100%; 
+    grid-row:2/-1; 
+    width:100%; 
+
+}
+
+.confirm{
+    display:grid; 
+    grid-row:7;
+    margin-top:15%; 
+    margin-left:10%; 
+    height:30px; 
+    width:140px; 
+    text-align: center;
+    padding-top: 5px;
+    background-color:#54D259; 
+    color:#0B0909;
+
+}
+
+.close { 
+   position:absolute; 
+    width:40px; 
+    height:40px; 
+    background-image: url("./close\ 2.png");
+    background-position:center; 
+    right:5px; 
+    top:5px; 
+    
+}
+
+.addStudentBtn {
+    width:60px; 
+    height:60px; 
+    display:grid; 
+    grid-column: 6;
+    grid-row: 1;
+    margin-left:25%; 
+    margin-top:5%; 
+   
+}
+
+
+
+.top { 
+    display:grid; 
+    grid-column: 1/7;
+    grid-row:1;
+    background-color: #294D32;
+    width:100%; 
+    grid-template-columns: repeat(6, 1fr);
+    height:100px; 
+    justify-items: center;
+    text-align: center;
+}
+
+.studentnametop, .hourstotaltop, .leveltop, .joindatetop, .tuitiontop{
+    margin: auto; 
+    color:white; 
+    font-weight: 800;
+    
+}
+
+.studentname{
+    display:grid; 
+    grid-column:1; 
+    
+}
+
+.hourstotal { 
+    display:grid; 
+    grid-column:2; 
+}
+
+.level { 
+    display:grid; 
+    grid-column:3; 
+}
+
+.joindate { 
+    display:grid; 
+    grid-column:4; 
+}
+
+.tuition { 
+    display:grid; 
+    grid-column:5; 
+}
+
+.dashboardpic{
+    display:grid; 
+    width:60px; 
+    height:60px; 
+   grid-column: 6;
+   grid-row:10;
+   margin-bottom: 10px;
+   margin-left:25%; 
+    
+}
+
+.dashboard { 
+    width:100%; 
+    height:100%; 
+    
+}
+
+.dashboardcontent {
+    width:90%; 
+    height:90%; 
+    display:grid; 
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: repeat(4,130px);
+    background-color: #D9D9D9;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left:5%; 
+    margin-bottom:5%; 
+}
+
+
+.dashboardcontent > div {
+    background-color:  #D6D7A7;
+     
+}
+
+.title { 
+    grid-column:1/-1;  
+    font-size:55px; 
+    color: black;
+    height:80%; 
+  
+}
+
+
+
+div {
+    color:white;
+    font-weight: 500;
+}
+.hourlywage { 
+    
+    grid-column: 1;
+    grid-row:2; 
+    width:80%; 
+    margin-left:10%; 
+
+}
+
+.schoolexpenses {
+    grid-column: 1;
+    grid-row:3; 
+    width:80%; 
+    margin-left:10%; 
+}
+
+.adexpenses { 
+    grid-column: 1;
+    grid-row:4; 
+    width:80%; 
+    margin-left:10%; 
+}
+
+.centercontent {
+    grid-column:2; 
+    grid-row:2/5; 
+    background-color: #D6D7A7;
+    height:100%; 
+
+    display:grid; 
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(4,130px);
+}
+
+h1 { 
+    font-size:20px; 
+    font-weight: 300;
+}
+
+
+.iconpic { 
+    width:30px; 
+    height:30px; 
+   
+}
+
+.icon{
+    margin-top:5%; 
+}
+
+
+
+.monthlyrevenue{
+    grid-column: 3;
+    grid-row:2; 
+    width:80%; 
+    margin-left:10%; 
+}
+
+.numberofstudents { 
+    grid-column: 3;
+    grid-row:3; 
+    width:80%; 
+    margin-left:10%; 
+}
+
+.grossprofit { 
+    grid-column: 3;
+    grid-row:4; 
+    width:80%; 
+    margin-left:10%; 
+}
+
+.totalteachhours{
+    width:20%;
+    height:100%;  
+}
+
+.loginbackground{
+     
+    width:100%; 
+    height:100%; 
+    margin:auto; 
+}
+
+.overlay { 
+   
+position: absolute;
+width: 818px;
+height: 273px;
+background: rgba(232, 206, 206, 0.6);
+ margin-left:20%; 
+ margin-top:5%; 
+ text-align: center;
+
+ color:black; 
+ font-family: 'Roboto';
+ font-style: normal;
+ font-weight: 600;
+ font-size: 36px;
+}
+.usernameinput { 
+    position: absolute;
+width: 300px;
+height: 26px; 
+left:20%; 
+
+}
+
+
+.passwordpinput{
+    position: absolute;
+width: 300px;
+height: 26px; 
+top:5%; 
+left:20%; 
+}
+
+.loginbutton { 
+    position: absolute;
+width: 143px;
+height: 38px;
+background: #2D921D;
+top:50%; 
+left:30%; 
+}
+
+
+
+.usernamesignup { 
+    position:absolute; 
+    left:95%; 
+    top:-30%; 
+}
+
+.passwordsignup{
+    position:absolute; 
+    left:95%; 
+    top:-15%; 
+}
+
+.signinbutton{
+    position:absolute; 
+    left:95%; 
+    top:-5%; 
+}
+
+.confirmpopup {
+    width:80%; 
+    height:80%; 
+    background-color: #F4F4F4;
+    margin-left:10%; 
+    margin-top:5%; 
+   
+}
+
+.topwrapper { 
+    background-color: #06E41C;
+    height:70px; 
+    text-align: center;
+ 
+}
+
+
+.popuphead { 
+
+    height:50px;  
+    font-size: 40px;
+    color:black; 
+    text-align: center;
+    padding-top:10px; 
+ 
+}
+
+
+.confirmcontent > div { 
+    color:black; 
+    text-align: left;
+    margin-left:5%; 
+    font-size: 24px; 
+    line-height:60px; 
+}
+
+
+
+.boxinstructions{
+    color:black; 
+    text-align: left;
+    margin-left:5%; 
+    font-size:32px; 
+}
+
+.confirmadd { 
+    background-color: #06E41C;
+    width:150px; 
+    height:40px; 
+    font-size:14px; 
+    margin-bottom:10px; 
+    margin-left:5%; 
+}
+
+.confirmadd:hover { 
+    background-color: #a3e9aa;
+}
+
+.canceladd{
+    background-color: #F80E0E;
+    width:150px; 
+    height:40px; 
+    font-size:14px; 
+    margin-bottom:10px; 
+    margin-left:20%;
+}
+
+.canceladd:hover { 
+    background-color: #ec5d5d;
+}
+
+.deletionWarningPopup{
+    display:none; 
+    position:absolute; 
     z-index: 999;
+    width:90%;
+    height:90%;
+    background-color: rgba(33, 46, 231, 1);
+    margin-left:5%; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.deletionhead { 
+    background-color: yellow;
+    height:100px; 
+    text-align:center; 
+    font-size:60px; 
+    color: black; 
+}
+
+.removefrmdb-button { 
+    width:120px; 
+    height:30px; 
+    background-color: #06E41C;
+}
+
+.cancelremovefromdb { 
+    width:120px; 
+    height:30px; 
+    background-color: red;
 }
