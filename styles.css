@@ -11,21 +11,22 @@ body {
 
 .boardwrapper{
     position: absolute; 
-    height:90%;
-    width:90%;
+    height:500px; 
+    width:100%;
     display:grid; 
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+
     z-index: 2;
-    margin-top:2.5%;
-    left:5%;
+
+
     gap:5px; 
      background-color: rgb(80, 117, 80);
      text-align: center;
      font-size:24px; 
      justify-items: center;
      align-items: center;
-     opacity:.9; 
+     overflow-y: auto ;
+   
 
 }
 
@@ -139,8 +140,8 @@ input {
     height:40px; 
     background-image: url("./close\ 2.png");
     background-position:center; 
-    right:5px; 
-    top:5px; 
+    right:-10px; 
+    top:-20px; 
     
 }
 
@@ -153,6 +154,10 @@ input {
     margin-left:25%; 
     margin-top:5%; 
    
+}
+
+.addStudentBtn:hover { 
+    background-color: greenyellow;
 }
 
 
@@ -199,19 +204,19 @@ input {
 
 .tuition { 
     display:grid; 
-    grid-column:5; 
+    grid-column:4; 
 }
 
 .dashboardpic{
     display:grid; 
     width:60px; 
     height:60px; 
-   grid-column: 6;
-   grid-row:10;
-   margin-bottom: 10px;
-   margin-left:25%; 
-    
+    margin-left:40%; 
+    margin-bottom:5px;  
+ 
 }
+
+
 
 .dashboard { 
     width:100%; 
@@ -236,6 +241,8 @@ input {
 
 .dashboardcontent > div {
     background-color:  #D6D7A7;
+    color:black; 
+    font-weight:400;
      
 }
 
@@ -502,4 +509,105 @@ left:30%;
     width:120px; 
     height:30px; 
     background-color: red;
+}
+
+.studentname:hover {
+ cursor:pointer; 
+ color:red; 
+}
+
+.dollarbutton, .wonbutton{
+    width:90px; 
+    height:30px; 
+   background-color: green;
+   color:white; 
+}
+
+
+.dollarbutton:hover { 
+    background-color: #06E41C;
+}
+
+.wonbutton:hover { 
+    background-color: #06E41C;
+}
+
+.dollarbutton:active { 
+    background-color: rgb(57, 180, 57);
+}
+
+.wonbutton:active { 
+    background-color: rgb(57, 180, 57);
+}
+
+.bottomnav {
+    display:grid; 
+    position:fixed; 
+    grid-template-columns: repeat(5,20%);
+    background-color: rgb(65, 65, 177);
+    width:100%; 
+    height:20%; 
+    bottom:1%; 
+
+   
+}
+
+.navcard:hover { 
+background-color: rgb(134, 134, 226);
+}
+
+.adexpensepopup, .generalexpensepopup{
+    position:absolute; 
+    z-index: 999;
+    width:40%; 
+    height:40%; 
+    background-color: #cc3535;
+    margin-left:10%; 
+    margin-top:20%; 
+    margin-left:15%; 
+    
+}
+
+.adexpensepopup > div { 
+    color:black; 
+}
+.adexpensecontenthead{
+    height:80px; 
+}
+.adexpensecontenthead > h1 {
+    background-color: rgb(78, 21, 21);
+    font-size: 38px;
+    text-align: center;
+    font-family: 'Roboto';
+}
+
+.expenseconfirm, .generalexpenseconfirm{
+    background-color:rgb(103, 226, 103); 
+}
+
+.closeadexpensepopup, .generalexpensepopup{
+    position:absolute; 
+    width:40px; 
+    height:40px; 
+    background-image: url("./close\ 2.png");
+    background-position:center; 
+    right:-10px; 
+    top:-20px; 
+}
+
+.pagenumber { 
+    color:rgb(16, 209, 65); 
+    position: absolute; 
+    bottom:25%; 
+    z-index: 999;
+    right:15%; 
+    font-size: 30px;
+   
+}
+
+.page2display{
+    display:none; 
+    width:700px; 
+    height:700px; 
+    background-color: yellow;
 }

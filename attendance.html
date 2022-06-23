@@ -12,6 +12,36 @@
 </head>
 <body>
  
+  <div class ="adexpensepopup"> 
+    <button class = "closeadexpensepopup"></button>
+    <div class ="adexpensecontent">
+
+    <div class = "adexpensecontenthead">
+     <h1>please enter the expense amount</h1>
+    </div>
+    <label> Enter expense
+    <input type="text" class = "expenseinput" placeholder=" type expense here"></input>
+    </label>
+    <button class = "expenseconfirm"> confirm</button>
+  </div>
+    </div>
+        
+    <div class ="generalexpensepopup"> 
+      <button class = "closegeneralexpensepopup"></button>
+      <div class ="generalexpensecontent">
+  
+      <div class = "generalexpensecontenthead">
+       <h1>please enter the expense amount</h1>
+      </div>
+      <label> Enter expense
+      <input type="text" class = "generalexpenseinput" placeholder=" type expense here"></input>
+      </label>
+      <button class = "generalexpenseconfirm"> confirm</button>
+    </div>
+      </div>
+
+
+
 
     <div class = "boardwrapper">
     
@@ -19,20 +49,54 @@
     <div class ="studentnametop">Student Name</div>
     <div class ="hourstotaltop">Hours per month</div>
     <div class ="leveltop">Level</div>
-    <div class ="joindatetop">Join date</div>
+
     <div class ="tuitiontop">Tuition</div>
+    <div class = "currency">
+    <h1>Currency</h1>
+     <button class = "dollarbutton">Dollar</button>
+     <button class = "wonbutton">Korean Won</button>
+     </button>
+    </div>
+  
   </div>
 
-   <div class = "studentname">Kim Doo Yan</div>
-   <div class = "hourstotal">12</div>
-   <div class ="level">A2</div>
-   <div CLASS = "joindate">December 2, 2021</div>
-   <div class ="tuition">$ 200</div>
+   <div class = "page2display">page 2 content</div>
    
-   
-   
-   
-   <img class ="dashboardpic" src ="home.png"></img>
+   <div class = "bottomnav">
+    
+    <div class="navcard">
+    <h1>Dashboard</h1>
+    <img class ="dashboardpic" src ="home.png"></img>
+  </div>
+  
+  <div class="navcard">
+    <h1>Add Ad Expense</h1>
+    <img class ="dashboardpic" src ="ads 1.png"></img>
+  </div>
+
+  <div class="navcard">
+    <h1>Add General Expense</h1>
+    <img class ="dashboardpic" src ="expense.png"></img>
+  </div>
+
+
+  <div class="navcard">
+    <h1>Previous Page</h1>
+    <img class ="dashboardpic" src ="previous.png"></img>
+  </div>
+
+  
+  <div class="navcard">
+    <h1>Next Page</h1>
+    <img class ="dashboardpic" src ="next-button.png"></img>
+  </div>
+
+
+
+
+  
+</div>   
+  
 
    
    
@@ -45,7 +109,7 @@
    
 </div>
 
-
+<div class = "pagenumber"> Page 1</div>
 
 <div class ="addstudentmodal">
 <div class ="addbg">
@@ -61,7 +125,6 @@
  
  
   <select id="levelchoice" >
-    <option value ="choose">Choose student level</option>
     <option value="PreA1">Pre A1</option>
     <option value="A1">A1</option>
     <option value="A2">A2</option>
@@ -73,9 +136,9 @@
 
   <input type="number" id="tuitioninput" placeholder="tuition amount per month"><br>
   
-  
+  <label>Choose student age</label>
   <select id="agechoice" >
-    <option value = "agerange">Choose student age range</option>
+    
     <option value="kindy">kindy</option>
     <option value="elementary">elementary</option>
     <option value="middleschool">middle school</option>
@@ -221,6 +284,8 @@
 
 
     
+
+
     <link rel="stylesheet" href="styles.css">
    
     <script type="module" src="main.js"></script>
