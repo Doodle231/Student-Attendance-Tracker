@@ -56,8 +56,8 @@ modalWrapper.style.display = "grid"
 dashboardwrapper.style.display = "grid"
 confirmPopup.style.display = "none"
 
-
-
+let generalExpensePopup = document.querySelector(".generalexpensepopup")
+generalExpensePopup.style.display = "none"
 
 dashboardpic.addEventListener('click', function(){
 
@@ -216,13 +216,14 @@ let expenses = {
 
 
 
+
 getDocs(colRef)
 .then((snapshot) => {
 
  snapshot.docs.forEach((doc) => {
   dashboardData.studentNumber += 1 
   dashboardData.teachingHours += doc.data().hours
-  dashboardData.revenue += doc.data().tuition 
+
   
   if (doc.data().hours !== undefined){
   students.push({...doc.data(), id:doc.id})
@@ -236,35 +237,57 @@ getDocs(colRef)
     expenses.schoolexpenses += doc.data().schoolexpense
   }
 
+  if (doc.data().tuition !== undefined){
+    dashboardData.revenue += doc.data().tuition 
+  }
 
+ let revenuText = document.querySelector(".revenutext")
+ revenuText.textContent = dashboardData.revenue
+  
+  let schoolExpensesText = document.querySelector(".expensecost")
+  schoolExpensesText.textContent =  expenses.schoolexpenses
+  
+  let adExpensesText = document.querySelector(".adexpensecost")
+  adExpensesText.textContent =  expenses.adexpenses
 
  })
+ 
+ 
+
  for (let i = 0; i < students.length; i++) {
   
-console.log(students.length)
-  if (students.length < 9 ){
-console.log("hey")
 
-  }
+ 
   let studentName = document.createElement("div")
+  let hoursTotal = document.createElement("div")
+  let level = document.createElement("div")
+  let tuition = document.createElement("div")
+
+
   studentName.classList = "studentname"
   
-  let hoursTotal = document.createElement("div")
+ 
   hoursTotal.classList = "hourstotal"
   
-  let level = document.createElement("div")
+
   level.classList = "level"
   
-  let tuition = document.createElement("div")
+  
   tuition.classList = "tuition"
+
+ 
   
   studentName.textContent = students[i].name
   hoursTotal.textContent = students[i].hours
   level.textContent = students[i].level
   tuition.textContent = "₩" + students[i].tuition
   
+  if (students.length < 9 ){
+
+
+  }
   
-  
+
   boardWrapper.appendChild(studentName)
   boardWrapper.appendChild(hoursTotal)
   boardWrapper.appendChild(level)
@@ -380,8 +403,6 @@ document.querySelector(".closeadexpensepopup").addEventListener('click', functio
   
   })
 
-  let schoolExpensesText = document.querySelector(".schoolexpenses")
-schoolExpensesText.textContent = "School Expenses " + expenses.schoolexpenses
+  
+ 
 
-let adExpensesText = document.querySelector(".adexpenses")
-adExpensesText.textContent = "School Expenses " + expenses.adexpenses

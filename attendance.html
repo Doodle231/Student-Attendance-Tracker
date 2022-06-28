@@ -80,16 +80,6 @@
   </div>
 
 
-  <div class="navcard">
-    <h1>Previous Page</h1>
-    <img class ="dashboardpic" src ="previous.png"></img>
-  </div>
-
-  
-  <div class="navcard">
-    <h1>Next Page</h1>
-    <img class ="dashboardpic" src ="next-button.png"></img>
-  </div>
 
 
 
@@ -109,7 +99,6 @@
    
 </div>
 
-<div class = "pagenumber"> Page 1</div>
 
 <div class ="addstudentmodal">
 <div class ="addbg">
@@ -117,26 +106,41 @@
     <button class ="close" ></button>
 </div>
 
-
+<div class="wrapper">
  <form class = "addstudentform">
+  <br><br>
+  <label>Enter Student Name <br>
   <input type="studentname" id="studentnameinput" placeholder="student full name"><br>
 
-  <input type="stuenthours" id="monthlyhoursinput" placeholder ="total number of hours per month">
- 
- 
+</label>
+
+<br>
+
+  <label>Enter Number of hours per month
+    <br>
+  <input type="stuenthours" id="monthlyhoursinput" placeholder ="enter hours"><br>
+</label>
+
+<br>
+
+ <label>Enter the level of student
+  <br>
   <select id="levelchoice" >
     <option value="PreA1">Pre A1</option>
     <option value="A1">A1</option>
     <option value="A2">A2</option>
     <option value="B1">B1</option>
     <option value="B2">B2</option>
+  </select> <br>
+</label>
 
-
-  </select> 
-
+<br>
+  <label>Enter the tuition amount per month<br>
   <input type="number" id="tuitioninput" placeholder="tuition amount per month"><br>
-  
-  <label>Choose student age</label>
+<br>
+</label>
+ 
+  <label>Choose student age<br>
   <select id="agechoice" >
     
     <option value="kindy">kindy</option>
@@ -145,12 +149,14 @@
     <option value="adult">adult</option>
   </select>
 
-
-</form> 
-
-<img class ="students" src ="school_kids_02 1.png"></img>
-
+</label>
+<br>
 <button class = "confirm">Add Student</button>
+</form> 
+</div>
+
+
+
 
 
 
@@ -161,7 +167,9 @@
 
   <div class ="dashboardcontent">
   
-    <div class ="title">Hello Dan!</div>
+    <div class ="title">
+    <div class = "dashboardtext">Manager Dashboard</div>
+    </div>
     <div class ="hourlywage">Hourly Wage 
     <div class ="icon"><img class ="iconpic" src ="hour-glass 1.png"></img></div>
   <h1>40,000</h1>
@@ -169,7 +177,7 @@
   
   <div class="schoolexpenses">School Expenses 
 <div class ="icon"><img class ="iconpic" src ="expense.png"></img></div>
-<h1>184,000</h1>
+<h1 class = "expensecost">184,000</h1>
   </div>
   
   
@@ -178,7 +186,7 @@
   <div class="adexpenses">Ad Expenses 
 
     <div class ="icon"><img class ="iconpic" src ="ads 1.png"></img></div>
-    <h1>250,000</h1>
+    <h1 class = "adexpensecost">250,000</h1>
   
   </div>
   
@@ -203,7 +211,7 @@
   <div class="monthlyrevenue">Monthly Revenue
 
     <div class ="icon"><img class ="iconpic" src ="money.png"></img></div>
-    <h1>6,500,000</h1>
+    <h1 class = "revenutext">6,500,000</h1>
   </div>
 
 
