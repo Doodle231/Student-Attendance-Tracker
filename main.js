@@ -51,31 +51,28 @@ const dashboardwrapper = document.querySelector(".dashboard")
 let studentNameDisplay = document.getElementsByClassName("studentname")
 let studentID = 0 
 
-boardWrapper.style.display = "none"
-modalWrapper.style.display = "grid"
-dashboardwrapper.style.display = "grid"
-confirmPopup.style.display = "none"
+boardWrapper.style.display = "grid"
 
 let generalExpensePopup = document.querySelector(".generalexpensepopup")
 generalExpensePopup.style.display = "none"
 
 dashboardpic.addEventListener('click', function(){
 
-  dashboardpic.style.display = "grid"
+  dashboardwrapper.style.display = "grid"
   modalWrapper.style.display = "none"
   boardWrapper.style.display = "none"
   })
   
 
   closeButton[0].addEventListener('click', function(){
-    dashboardwrapper.style.display = "grid"
+    dashboardwrapper.style.display = "none"
     modalWrapper.style.display = "none"
     boardWrapper.style.display = "grid"
     })
 
 
 closeButton[1].addEventListener('click', function(){
-dashboardwrapper.style.display = "grid"
+dashboardwrapper.style.display = "none"
 modalWrapper.style.display = "none"
 boardWrapper.style.display = "grid"
 })
@@ -90,8 +87,12 @@ modalWrapper.style.display = "grid"
 })
 
 
-
-
+const closeAllModals = () => { 
+  modalWrapper.style.display = "none"
+  boardWrapper.style.display = "none"
+  adexpensepopup.style.display = "none"
+  dashboardwrapper.style.display = "none"
+}
 
 
 
@@ -391,8 +392,8 @@ let adexpensepopup = document.querySelector(".adexpensepopup")
 const adExpenseBtn = document.getElementsByClassName("navcard")[1]
 
 adExpenseBtn.addEventListener('click', function(){
-adexpensepopup.style.display = "block"
-dashboardwrapper.style.display = "none"
+adexpensepopup.style.display = "grid"
+
 console.log("clicked")
 
 })
@@ -405,4 +406,5 @@ document.querySelector(".closeadexpensepopup").addEventListener('click', functio
 
   
  
+
 
