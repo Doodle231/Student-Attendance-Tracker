@@ -96,93 +96,7 @@ const closeAllModals = () => {
 
 
 
-          
-/*
-confirmButton.addEventListener('click', function(){
- 
 
-  let studentName = document.getElementById("newname").value
-    let studentTuition = document.getElementById("newtuition").value
-    let studentLevel = document.getElementById("classType").value
-
-
-          let studentNameDisplay =  document.createElement("div")
-          let studentPriceDisplay = document.createElement("div")
-          let studentLevelDisplay = document.createElement("div")
-      
-         let deletebtn = document.createElement('Button') 
-          
-         studentNameDisplay.classList = "studentname"
-          studentPriceDisplay.classList = "tutionprice"
-          studentLevelDisplay.classList = "studentlevel"
-    
-          
-          let titleWrapper = document.getElementsByClassName("titlewrapper")[0]
-          
-         deletebtn.classList = "deletebtn" 
-
-
-    studentNameDisplay.innerText = studentName
-    studentPriceDisplay.innerText = studentTuition
-    studentLevelDisplay.innerText = studentLevel
-
- 
-          titleWrapper.appendChild(studentNameDisplay)
-          titleWrapper.appendChild(studentPriceDisplay)
-          titleWrapper.appendChild(studentLevelDisplay)
-          titleWrapper.appendChild(deletebtn)
-     
-  
-          let deleteButton = document.getElementsByClassName("deletebtn")
-           
-            
-            for (let i = 0; i < deleteButton.length; i++) {
-
-              let name = document.getElementsByClassName("studentname") 
-              let tutionprice =  document.getElementsByClassName("tutionprice") 
-              let studentLevel = document.getElementsByClassName("studentlevel")
-             
-
-                  deleteButton[i].id = i
-              
-         
-            
-              deleteButton[i].onclick = function (e) {
-             
-           let deleteButton = e.target 
-           let nextElement = deleteButton.previousElementSibling
-           let brotherElement = nextElement.previousElementSibling
-           let sisterElement = brotherElement.previousElementSibling
-         
-           
-           deleteButton.remove()
-           nextElement.remove()
-           brotherElement.remove()
-             sisterElement.remove()
-           
-            
-          }
-
-          
-  
-
-
-        }
-        
-                  
-        
-        
-       
-    modalWrapper.style.display = "none"
-    
-    })
-    
-    */
-
-
- 
-   
-// firebase 
 
 const firebaseConfig = {
   apiKey: "AIzaSyDidN15Yn-ePiF2QamJ81DwV5Pc-ZGo5AM",
@@ -193,8 +107,6 @@ const firebaseConfig = {
   appId: "1:577980572828:web:4d491ade41a29ae5e77959"
 };
 
-
-// Initialize Firebase
 
 const app = initializeApp(firebaseConfig);
 
@@ -223,11 +135,12 @@ getDocs(colRef)
 
  snapshot.docs.forEach((doc) => {
   dashboardData.studentNumber += 1 
-  dashboardData.teachingHours += doc.data().hours
+ 
 
   
   if (doc.data().hours !== undefined){
   students.push({...doc.data(), id:doc.id})
+  dashboardData.teachingHours += doc.data().hours
   }
 
   if (doc.data().adexpense !== undefined){
@@ -242,18 +155,39 @@ getDocs(colRef)
     dashboardData.revenue += doc.data().tuition 
   }
 
- let revenuText = document.querySelector(".revenutext")
- revenuText.textContent = dashboardData.revenue
-  
-  let schoolExpensesText = document.querySelector(".expensecost")
-  schoolExpensesText.textContent =  expenses.schoolexpenses
-  
-  let adExpensesText = document.querySelector(".adexpensecost")
-  adExpensesText.textContent =  expenses.adexpenses
+ 
+
 
  })
  
  
+
+const initiDashboardData = () => { 
+  let revenuText = document.querySelector(".revenutext")
+  revenuText.textContent = dashboardData.revenue
+   
+   let schoolExpensesText = document.querySelector(".expensecost")
+   schoolExpensesText.textContent =  expenses.schoolexpenses
+   
+   let adExpensesText = document.querySelector(".adexpensecost")
+   adExpensesText.textContent =  expenses.adexpenses
+ 
+   let teachingHoursText = document.querySelector(".teachinghourscontent")
+   teachingHoursText.textContent = dashboardData.teachingHours
+
+
+   let hourlyWage = dashboardData.revenue / dashboardData.teachingHours
+ console.log(hourlyWage)
+}
+
+initiDashboardData()
+
+
+
+
+
+
+
 
  for (let i = 0; i < students.length; i++) {
   
@@ -392,7 +326,7 @@ let adexpensepopup = document.querySelector(".adexpensepopup")
 const adExpenseBtn = document.getElementsByClassName("navcard")[1]
 
 adExpenseBtn.addEventListener('click', function(){
-adexpensepopup.style.display = "grid"
+adexpensepopup.style.display = "block"
 
 console.log("clicked")
 

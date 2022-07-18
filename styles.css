@@ -311,6 +311,7 @@ h1 {
 .totalteachhours{
     width:20%;
     height:100%;  
+    margin-bottom: 10%;
 }
 
 .loginbackground{
@@ -560,9 +561,12 @@ background-color: rgb(134, 134, 226);
 
 
 .expenseconfirm, .generalexpenseconfirm{
-    background-color:rgb(103, 226, 103); 
+    background-color:rgb(24, 71, 24); 
     width:70%; 
     margin-top:5%; 
+    height:60px; 
+    font-size: 25px;
+    color:white; 
 }
 
 .closeadexpensepopup, .closegeneralexpensepopup{
@@ -631,6 +635,10 @@ label {
    font-weight: 500;
    padding-top: 1rem; 
    padding-bottom:1rem; 
+   font-size:24px; 
+ 
+ 
+   
 }
 
 .adexpensepopup{
@@ -649,7 +657,10 @@ label {
 }
 
 
-
+#btn-closedashboard { 
+    background-color: green;
+    position:relative; 
+  }
 
 
 
@@ -689,10 +700,7 @@ label {
     top:50px; 
   }
 
-  .bottomnav { 
-    height:100px; 
-    bottom:10%
-  }
+ 
  
   .dashboardpic{
     width: 40px;
@@ -724,6 +732,8 @@ label {
     
   }
 
+
+  
   .title { 
     height:90px; 
     background-color: #c2af09;
@@ -756,13 +766,7 @@ label {
     height:1500px; 
 }
 
-.close { 
-    position:absolute; 
-    right:55px; 
-    width:30px; 
-    height:30px; 
-    top:10px; 
-}
+
 
 .addstudentmodal{
     display:block; 
