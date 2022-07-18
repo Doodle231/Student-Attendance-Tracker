@@ -116,7 +116,7 @@ const user = auth.currentUser;
 const db = getFirestore()
 const colRef = collection(db,"guest")
 
-const docRef = doc(db, "guest","Oscar Boss")
+
 
 let students = []
 let expenses = {
@@ -177,7 +177,8 @@ const initiDashboardData = () => {
 
 
    let hourlyWage = dashboardData.revenue / dashboardData.teachingHours
- console.log(hourlyWage)
+ console.log(dashboardData.revenue)
+ 
 }
 
 initiDashboardData()
@@ -232,6 +233,8 @@ initiDashboardData()
 
  
  }
+
+assignDeleteDblClick()
 
 
 })
@@ -340,5 +343,39 @@ document.querySelector(".closeadexpensepopup").addEventListener('click', functio
 
   
  
+const assignDeleteDblClick = () => { 
+ 
+  for (let i = 0; i < studentNameDisplay.length; i++) {
+
+    studentNameDisplay[i].addEventListener("dblclick",function (e){
+      
+      let deletetionPopup = document.querySelector(".deletionWarningPopup")
+      deletetionPopup.style.display = "block"
+
+      let targetedName = e.target.textContent
+
+      const handleDeleteOnClick = () => { 
+        const docRef = doc(db, "guest", targetedName)
+      
+      deleteDoc(docRef)
+      .then (() => {
+        console.log("successfully deleted")
+      })
+     
+    }
+
+      handleDeleteOnClick()
 
 
+    });
+ 
+}
+
+}
+
+const setDeletionTextContent = () => { 
+  let nameDeletionText = document.querySelector(".namedeletion")
+  let tuitionDeletionText = document.querySelector(".tuitiondeletion")
+  let leveldeletionText = document.querySelector(".leveldeletion")
+
+}

@@ -31,6 +31,7 @@ body {
 
 }
 
+
 .page1content { 
     z-index: 1;
     height:100px; 
@@ -60,12 +61,17 @@ body {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 800;
-    font-size: 64px;
-    grid-column: 1/-1; 
+    font-size: 44px;
     text-align: center;
-   margin-top:55px; 
-   color:blue; 
-   margin-bottom: 40px;
+   margin-top:10px;
+   margin-bottom:20px; 
+ 
+   padding-bottom: 70px;
+   background-color: #5d76e4;
+   padding-left:5%;
+   padding-right:5%;
+   padding-top:5%; 
+   
 }
 
 
@@ -462,17 +468,21 @@ left:30%;
     height:90%;
     background-color: rgba(33, 46, 231, 1);
     margin-left:5%; 
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+ 
+    text-align: left;
+    font-size:2rem; 
 }
-
+.warningprompt{
+    font-size: 3rem;
+    font-weight: 800;
+}
 .deletionhead { 
     background-color: yellow;
     height:100px; 
     text-align:center; 
     font-size:60px; 
     color: black; 
+    padding-top: 15px;
 }
 
 .removefrmdb-button { 
@@ -610,10 +620,16 @@ background-color: rgb(134, 134, 226);
     color:black; 
     font-size: 14px;
     text-align: center;
-
+    padding-bottom: 10%;
 
  
 }
+
+.textwrapper { 
+    padding-left: 5%;
+    padding-right:5%
+}
+
 
 .wrapper { 
     position:relative;; 
@@ -663,7 +679,34 @@ label {
   }
 
 
+  .successscreen{
+    display:block; 
+    position:absolute; 
+    z-index: 999;
+    width:90%;
+    height:80%;
+    background-color: rgba(33, 46, 231, 1);
+    margin-left:5%; 
+    margin-top:5%; 
+    border: 2px solid yellow; 
+    text-align: center;
+    font-size:4rem; 
+    
+  }
 
+  .successcontent { 
+    padding:5%; 
+    position:relative; 
+  }
+
+#successpic{
+   position:absolute; 
+    width:300px; 
+    height:300px; 
+    opacity:.8; 
+    border-radius: 150px;
+    
+}
 
 
 @media (min-width: 220px) and (max-width: 580px) {
@@ -674,6 +717,15 @@ label {
     top:5px; 
     
   }
+
+  #successpic{
+    position:absolute; 
+     width:150px; 
+     height:150px; 
+     opacity:.8; 
+     border-radius: 150px;
+     
+ }
 
   .wonbutton { 
     left:120px; 
