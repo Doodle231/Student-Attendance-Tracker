@@ -47,7 +47,7 @@ body {
     margin-top:2.5%;
     left:5%;
     gap:5px; 
-     background-image: url("desks.jpg");
+     background-image: url("/assets/desks.jpg");
      background-size: 100%; ;
      background-position: contain; 
      text-align: center;
@@ -105,7 +105,7 @@ body {
    position:absolute; 
     width:40px; 
     height:40px; 
-    background-image: url("./close\ 2.png");
+    background-image: url("assets/./close\ 2.png");
     background-position:center; 
     right:3.5rem;  
     top:.2rem; 
@@ -199,7 +199,7 @@ body {
     display:grid; 
     grid-template-columns: 400px 400px 400px;
     grid-template-rows: repeat(4,130px);
-    background-image: url("pen.jpg");
+    background-image: url("assets/pen.jpg");
     background-position: cover;
     background-repeat: no-repeat;
     background-size: cover;
@@ -583,7 +583,7 @@ background-color: rgb(134, 134, 226);
     position:absolute; 
     width:40px; 
     height:40px; 
-    background-image: url("./close\ 2.png");
+    background-image: url("assets/close\ 2.png");
     background-position:center; 
     right:-10px; 
     top:-20px; 
@@ -680,7 +680,7 @@ label {
 
 
   .successscreen{
-    display:block; 
+    display:none; 
     position:absolute; 
     z-index: 999;
     width:90%;

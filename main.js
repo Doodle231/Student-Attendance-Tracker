@@ -11,28 +11,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"
 
 
-
-let dashboardData = { 
-  profit: 0 , 
-  revenue:0, 
-  studentNumber: 0, 
-  schoolExpenses: 0, 
-  hourlyWage:0, 
-  adExpenses:0, 
-  teachingHours:0, 
-  
-  days: {
-    monday:null, 
-    tuesday:null,  
-    wednesday:null,  
-    thursday:null, 
-    friday:null, 
-    saturday:null, 
-    
-  }
-
-
-}
+import * as dashboard from "./dashboard.js"
 
 
 let studentHours = 0 
@@ -87,16 +66,6 @@ modalWrapper.style.display = "grid"
 })
 
 
-const closeAllModals = () => { 
-  modalWrapper.style.display = "none"
-  boardWrapper.style.display = "none"
-  adexpensepopup.style.display = "none"
-  dashboardwrapper.style.display = "none"
-}
-
-
-
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyDidN15Yn-ePiF2QamJ81DwV5Pc-ZGo5AM",
@@ -126,118 +95,93 @@ let expenses = {
 
 
 
+const assignDataToObjects = () => {
 
-
-
-
-getDocs(colRef)
-.then((snapshot) => {
-
- snapshot.docs.forEach((doc) => {
-  dashboardData.studentNumber += 1 
- 
-
+  getDocs(colRef)
+  .then((snapshot) => {
   
-  if (doc.data().hours !== undefined){
-  students.push({...doc.data(), id:doc.id})
-  dashboardData.teachingHours += doc.data().hours
-  }
-
-  if (doc.data().adexpense !== undefined){
-    expenses.adexpenses += doc.data().adexpense
-  }
-
-  if (doc.data().schoolexpense !== undefined){
-    expenses.schoolexpenses += doc.data().schoolexpense
-  }
-
-  if (doc.data().tuition !== undefined){
-    dashboardData.revenue += doc.data().tuition 
-  }
-
- 
-
-
- })
- 
- 
-
-const initiDashboardData = () => { 
-  let revenuText = document.querySelector(".revenutext")
-  revenuText.textContent = dashboardData.revenue
+   snapshot.docs.forEach((doc) => {
+    dashboard.dashboardData.studentNumber += 1 
    
-   let schoolExpensesText = document.querySelector(".expensecost")
-   schoolExpensesText.textContent =  expenses.schoolexpenses
+    if (doc.data().hours !== undefined){
+    students.push({...doc.data(), id:doc.id})
+    dashboard.dashboardData.teachingHours += doc.data().hours
+    }
+  
+    if (doc.data().adexpense !== undefined){
+      expenses.adexpenses += doc.data().adexpense
+    }
+  
+    if (doc.data().schoolexpense !== undefined){
+      expenses.schoolexpenses += doc.data().schoolexpense
+    }
+  
+    if (doc.data().tuition !== undefined){
+      dashboard.dashboardData.revenue += doc.data().tuition 
+    }
+  
+   })
    
-   let adExpensesText = document.querySelector(".adexpensecost")
-   adExpensesText.textContent =  expenses.adexpenses
- 
-   let teachingHoursText = document.querySelector(".teachinghourscontent")
-   teachingHoursText.textContent = dashboardData.teachingHours
+   
+  
+  const initiDashboardData = () => { 
+    let revenuText = document.querySelector(".revenutext")
+    revenuText.textContent = dashboard.dashboardData.revenue
+     
+     let schoolExpensesText = document.querySelector(".expensecost")
+     schoolExpensesText.textContent =  expenses.schoolexpenses
+     
+     let adExpensesText = document.querySelector(".adexpensecost")
+     adExpensesText.textContent =  expenses.adexpenses
+   
+     let teachingHoursText = document.querySelector(".teachinghourscontent")
+     teachingHoursText.textContent = dashboard.dashboardData.teachingHours
+  
+  
+     let hourlyWage = dashboard.dashboardData.revenue / dashboard.dashboardData.teachingHours
 
+   
+  }
+  
+  initiDashboardData()
+  
+  
+   for (let i = 0; i < students.length; i++) {
+  
+   
+    let studentName = document.createElement("div")
+    let hoursTotal = document.createElement("div")
+    let level = document.createElement("div")
+    let tuition = document.createElement("div")
+  
+  
+    studentName.classList = "studentname"
+    hoursTotal.classList = "hourstotal"
+    level.classList = "level"
+    tuition.classList = "tuition"
+  
+    studentName.textContent = students[i].name
+    hoursTotal.textContent = students[i].hours
+    level.textContent = students[i].level
+    tuition.textContent = "₩" + students[i].tuition
+    
+    boardWrapper.appendChild(studentName)
+    boardWrapper.appendChild(hoursTotal)
+    boardWrapper.appendChild(level)
+    boardWrapper.appendChild(tuition)
+  
+  
+   
+   }
+  
+  assignDeleteDblClick()
+  
+  
+  })
 
-   let hourlyWage = dashboardData.revenue / dashboardData.teachingHours
- console.log(dashboardData.revenue)
- 
 }
 
-initiDashboardData()
-
-
-
-
-
-
-
-
- for (let i = 0; i < students.length; i++) {
-  
-
- 
-  let studentName = document.createElement("div")
-  let hoursTotal = document.createElement("div")
-  let level = document.createElement("div")
-  let tuition = document.createElement("div")
-
-
-  studentName.classList = "studentname"
-  
- 
-  hoursTotal.classList = "hourstotal"
-  
-
-  level.classList = "level"
-  
-  
-  tuition.classList = "tuition"
-
- 
-  
-  studentName.textContent = students[i].name
-  hoursTotal.textContent = students[i].hours
-  level.textContent = students[i].level
-  tuition.textContent = "₩" + students[i].tuition
-  
-  if (students.length < 9 ){
-
-
-  }
-  
-
-  boardWrapper.appendChild(studentName)
-  boardWrapper.appendChild(hoursTotal)
-  boardWrapper.appendChild(level)
-  
-  boardWrapper.appendChild(tuition)
-
-
- 
- }
-
-assignDeleteDblClick()
-
-
-})
+assignDataToObjects()
 
 let studentNameInput = document.getElementById("studentnameinput")
 let monthlyHoursInput = document.getElementById("monthlyhoursinput")
@@ -291,20 +235,19 @@ let confirmButton = document.querySelector(".confirmadd")
 confirmButton.addEventListener('click', function(){
 
 
-
-
+console.log("clicked")
 
   setDoc(doc(db, "guest", studentNameInput.value), {
     hours: Number(monthlyHoursInput.value), 
     level: levelChoice.value,
     name:studentNameInput.value,
     tuition: Number(tuitionInput.value), 
-
+    
   });
   
-
-
-
+  initalizeSuccessScreen()
+  confirmPopup.style.display = "none"
+  boardWrapper.style.display = "grid"
 })
   
 
@@ -331,7 +274,7 @@ const adExpenseBtn = document.getElementsByClassName("navcard")[1]
 adExpenseBtn.addEventListener('click', function(){
 adexpensepopup.style.display = "block"
 
-console.log("clicked")
+
 
 })
 
@@ -359,11 +302,11 @@ const assignDeleteDblClick = () => {
       
       deleteDoc(docRef)
       .then (() => {
-        console.log("successfully deleted")
+       
       })
      
     }
-
+    
       handleDeleteOnClick()
 
 
@@ -373,9 +316,23 @@ const assignDeleteDblClick = () => {
 
 }
 
-const setDeletionTextContent = () => { 
-  let nameDeletionText = document.querySelector(".namedeletion")
-  let tuitionDeletionText = document.querySelector(".tuitiondeletion")
-  let leveldeletionText = document.querySelector(".leveldeletion")
-
+const initalizeSuccessScreen = () => {
+  function successScreen() {
+    let successScreen = document.querySelector(".successscreen")
+    successScreen.style.display ='block'
+    setTimeout(clearSucessScreen, 2200 )
+   
+    }
+    
+    function clearSucessScreen(){
+      let successScreen = document.querySelector(".successscreen")
+      successScreen.style.display = "none"
+    }
+    
+    console.log(successScreen)
+    successScreen()
+    
+   
+    
 }
+
