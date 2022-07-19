@@ -12,9 +12,11 @@ import {
 
 import { initCurrency } from "./convertcurrency.js"
 
-
 import * as dashboard from "./dashboard.js"
  
+
+document.getElementById('loginemail').value = "hireme@justdoit.com"
+document.getElementById('loginpassword').value = "justdoit"
 
 const confirmPopup = document.querySelector(".confirmpopup")
 const modalWrapper = document.getElementsByClassName("addstudentmodal")[0]
@@ -27,7 +29,7 @@ const dashboardpic = document.querySelector(".dashboardpic")
 const dashboardwrapper = document.querySelector(".dashboard")
 let studentNameDisplay = document.getElementsByClassName("studentname")
 
-
+let targetedName = null; 
 boardWrapper.style.display = "grid"
 
 let generalExpensePopup = document.querySelector(".generalexpensepopup")
@@ -135,9 +137,10 @@ const assignDataToObjects = () => {
      let teachingHoursText = document.querySelector(".teachinghourscontent")
      teachingHoursText.textContent = dashboard.dashboardData.teachingHours
   
-  
-     let hourlyWage = dashboard.dashboardData.revenue / dashboard.dashboardData.teachingHours
-
+     let hourlyText = document.getElementsByClassName("hourlytext")[0]
+     let hourlyWage = " W " + Math.round(dashboard.dashboardData.revenue / dashboard.dashboardData.teachingHours) + ",000"
+ 
+     hourlyText.textContent = hourlyWage
    
   }
   
@@ -193,7 +196,7 @@ let addStudentForm = document.querySelector(".addstudentform")
 addStudentForm.style.display = "block"
 
 let loginPage = document.querySelector(".loginpage")
-loginPage.style.display = "none"
+loginPage.style.display = "block"
 
 const confirmStudentSettings = () => {
   let confirmButton = document.querySelector(".confirm")
@@ -293,19 +296,9 @@ const assignDeleteDblClick = () => {
       let deletetionPopup = document.querySelector(".deletionWarningPopup")
       deletetionPopup.style.display = "block"
 
-      let targetedName = e.target.textContent
+       targetedName = e.target.textContent
 
-      const handleDeleteOnClick = () => { 
-        const docRef = doc(db, "guest", targetedName)
       
-      deleteDoc(docRef)
-      .then (() => {
-       
-      })
-     
-    }
-    
-      handleDeleteOnClick()
 
 
     });
@@ -335,3 +328,32 @@ const initalizeSuccessScreen = () => {
 }
 
 initCurrency()
+
+
+function deleteDocOnConfirmClick () {
+
+  let confirmDeletionButton = document.getElementsByClassName("removefrmdb-button")[0]
+   
+  confirmDeletionButton.addEventListener('click', function(){
+
+    handleDeleteOnClick()
+
+
+  })
+  
+}
+
+deleteDocOnConfirmClick()
+
+
+
+const handleDeleteOnClick = () => { 
+  const docRef = doc(db, "guest", targetedName)
+
+deleteDoc(docRef)
+.then (() => {
+
+})
+
+}
+

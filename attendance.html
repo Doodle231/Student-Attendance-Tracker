@@ -45,7 +45,7 @@
 
     <div class = "boardwrapper">
     
-      <div class = "top">
+      <div class = "maintop">
     <div class ="studentnametop">Name</div>
     <div class ="hourstotaltop">Hours</div>
     <div class ="leveltop">Level</div>
@@ -56,8 +56,10 @@
      <button class = "dollarbutton">Dollar</button>
      <button class = "wonbutton">Won</button>
      </button>
+
+    
     </div>
-  
+    <img class ="addStudentBtn" src = "/assets/add-user 1(1).png" ></img>
   </div>
 
    <div class = "page2display">page 2 content</div>
@@ -92,7 +94,7 @@
    
 
    
-   <img class ="addStudentBtn" src = "/assets/add-user 1(1).png" ></img>
+
 
 
 
@@ -172,7 +174,7 @@
     </div>
     <div class ="hourlywage">Hourly Wage 
     <div class ="icon"><img class ="iconpic" src ="/assets/hour-glass 1.png"></img></div>
-  <h1>40,000</h1>
+  <h1 class ="hourlytext">40,000</h1>
   </div>
   
   <div class="schoolexpenses">School Expenses 
@@ -240,18 +242,28 @@
 <div class = "loginpage">
 <div class = "overlay">
   
-  <input type ="text " class ="usernamesignup" placeholder="make a username"></input>
-  <input type = "text" class = "passwordsignup" placeholder ="make a password"></input>
-  <button class ="signinbutton">Signin</button>
-  <h1>Teacher Login</h1>
+  <h1 class = "loginpagehead">Manager Login</h1>
 
 <form class ="login">
-  <input type="email" name="email" placeholder="Email" required="">
-  <input type="password" name="password" placeholder="Password" required="">
-<button class ="loginbutton">Login</button>
+  <input type="email" id ="loginemail" name="email" placeholder="Email"  required=""> 
+  <input type="password" id ="loginpassword" name="password" placeholder="Password" required="">
+<br>
+  <button class ="loginbutton">Login</button>
+  <div class="disclaimerbox">
+   <h1>I'm sure you are busy. I went ahead and provided
+    all the login info above. Please realize that this is a demo app and not a mistake
+    on my part. In a real situation you would of course need to sign up first. Just trying to save you some time : ) 
+
+
+   </h1>
+    </div>
+
 </div>
 <img class ="loginbackground" src ="/assets/13113 1.png"></img>
 </form>
+
+
+
 
 </div>
 

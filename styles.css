@@ -113,13 +113,14 @@ body {
 }
 
 .addStudentBtn {
+    display: grid;
     width:60px; 
     height:60px; 
-    display:grid; 
+    z-index: 999;
+    position:relative; 
     grid-column: 6;
-    grid-row: 1;
-    margin-left:25%; 
-    margin-top:5%; 
+    margin-top:auto; 
+
    
 }
 
@@ -129,7 +130,7 @@ body {
 
 
 
-.top { 
+.maintop { 
     display:grid; 
     grid-column: 1/7;
     grid-row:1;
@@ -139,6 +140,8 @@ body {
     height:100px; 
     justify-items: center;
     text-align: center;
+    position:fixed; 
+    top:0%; 
 }
 
 .studentnametop, .hourstotaltop, .leveltop, .joindatetop, .tuitiontop{
@@ -198,24 +201,24 @@ body {
     height:90%; 
     display:grid; 
     grid-template-columns: 400px 400px 400px;
-    grid-template-rows: repeat(4,130px);
-    background-image: url("assets/pen.jpg");
-    background-position: cover;
-    background-repeat: no-repeat;
+    grid-template-rows: repeat(4,150px);
+    background-color: rgb(77, 72, 76);
     background-size: cover;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-left:5%; 
     margin-bottom:5%; 
+   
+   
 }
 
 
 .dashboardcontent > div {
     background-color:  #b9aed8;
-    color:black; 
-    font-weight:400;
-    opacity:.8; 
+    color:rgb(255, 242, 242); 
+    font-weight:700;
+     
      
 }
 
@@ -231,9 +234,9 @@ body {
     font-size:55px; 
     color: black;
     height:80%; 
-    margin-top:10px; 
+    margin-top:25px; 
     font-weight: 700;
-    color:blue; 
+    color:white;
  
 }
 
@@ -327,12 +330,20 @@ h1 {
     margin:auto; 
 }
 
+.loginpagehead {
+    font-size: 3rem;
+    padding-top: 2rem;
+    color:white; 
+}
+
+
+
 .overlay { 
    
 position: absolute;
-width: 818px;
-height: 273px;
-background: rgba(232, 206, 206, 0.6);
+width: 60%;
+height: 60%;
+background: rgba(82, 27, 184, 0.6);
  margin-left:20%; 
  margin-top:5%; 
  text-align: center;
@@ -350,6 +361,17 @@ height: 26px;
 left:20%; 
 
 }
+.disclaimerbox{
+    background-color: rgb(30, 17, 224);
+    width:auto; 
+    height:40%; 
+    position: absolute;
+    margin-top:5%; 
+    padding:1rem; 
+    
+ 
+ 
+}
 
 
 .passwordpinput{
@@ -361,14 +383,19 @@ left:20%;
 }
 
 .loginbutton { 
-    position: absolute;
 width: 143px;
 height: 38px;
 background: #2D921D;
 top:50%; 
-left:30%; 
+margin-top:5%; 
+color:white; 
+
 }
 
+.loginbutton:hover{ 
+    background-color: #56bd47;
+    cursor:hand;
+}
 
 
 .usernamesignup { 
@@ -744,13 +771,7 @@ label {
     font-size:14px
   }
 
-  .addStudentBtn { 
-    width:40px; 
-    height:40px; 
-    position:absolute; 
-    right:50px; 
-    top:50px; 
-  }
+ 
 
  
  
@@ -772,7 +793,7 @@ label {
     text-align: center;
     align-items: center; 
     justify-content: center;
-
+   
    
   }
     
@@ -800,7 +821,7 @@ label {
     background-color:  #b9aed8;
     color:black; 
     font-weight:400;
-    opacity:.8; 
+    color:white; 
      
 }
 
