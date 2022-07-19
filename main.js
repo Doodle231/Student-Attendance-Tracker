@@ -10,25 +10,23 @@ import {
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"
 
+import { initCurrency } from "./convertcurrency.js"
+
 
 import * as dashboard from "./dashboard.js"
-
-
-let studentHours = 0 
-let totaledTution = 0 
+ 
 
 const confirmPopup = document.querySelector(".confirmpopup")
 const modalWrapper = document.getElementsByClassName("addstudentmodal")[0]
 const addStudentButton = document.getElementsByClassName("addStudentBtn")[0]
-//const confirmButton = document.getElementsByClassName("checkbutton")[0]
-const nameInputStyle = document.getElementById("newname")
+
 modalWrapper.style.display = "none"
 const closeButton = document.getElementsByClassName("close")
 const boardWrapper = document.querySelector(".boardwrapper")
 const dashboardpic = document.querySelector(".dashboardpic")
 const dashboardwrapper = document.querySelector(".dashboard")
 let studentNameDisplay = document.getElementsByClassName("studentname")
-let studentID = 0 
+
 
 boardWrapper.style.display = "grid"
 
@@ -163,7 +161,7 @@ const assignDataToObjects = () => {
     studentName.textContent = students[i].name
     hoursTotal.textContent = students[i].hours
     level.textContent = students[i].level
-    tuition.textContent = "₩" + students[i].tuition
+    tuition.textContent = + students[i].tuition
     
     boardWrapper.appendChild(studentName)
     boardWrapper.appendChild(hoursTotal)
@@ -336,3 +334,4 @@ const initalizeSuccessScreen = () => {
     
 }
 
+initCurrency()
