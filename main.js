@@ -141,7 +141,9 @@ const assignDataToObjects = () => {
      let hourlyWage = " W " + Math.round(dashboard.dashboardData.revenue / dashboard.dashboardData.teachingHours) + ",000"
  
      hourlyText.textContent = hourlyWage
-   
+
+     let studentNumberText = document.getElementsByClassName("currentstudentnumber")[0]
+     studentNumberText.textContent = dashboard.dashboardData.studentNumber
   }
   
   initiDashboardData()
@@ -196,7 +198,7 @@ let addStudentForm = document.querySelector(".addstudentform")
 addStudentForm.style.display = "block"
 
 let loginPage = document.querySelector(".loginpage")
-loginPage.style.display = "block"
+loginPage.style.display = "none"
 
 const confirmStudentSettings = () => {
   let confirmButton = document.querySelector(".confirm")
@@ -298,7 +300,7 @@ const assignDeleteDblClick = () => {
 
        targetedName = e.target.textContent
 
-      
+       boardWrapper.style.display = "none"
 
 
     });
@@ -318,6 +320,9 @@ const initalizeSuccessScreen = () => {
     function clearSucessScreen(){
       let successScreen = document.querySelector(".successscreen")
       successScreen.style.display = "none"
+      let deletetionPopup = document.querySelector(".deletionWarningPopup")
+      deletetionPopup.style.display ="none"
+      boardWrapper.style.display ="grid"
     }
     
     console.log(successScreen)
@@ -337,7 +342,9 @@ function deleteDocOnConfirmClick () {
   confirmDeletionButton.addEventListener('click', function(){
 
     handleDeleteOnClick()
+    initalizeSuccessScreen()
 
+  
 
   })
   
