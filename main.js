@@ -87,7 +87,6 @@ const colRef = collection(db,"guest")
 
 
 
-let students = []
 let expenses = {
   adexpenses:null, 
   schoolexpenses:null, 
@@ -95,12 +94,16 @@ let expenses = {
 
 
 
-const assignDataToObjects = () => {
 
-  getDocs(colRef)
-  .then((snapshot) => {
+ 
+getDocs(colRef)
+.then((snapshot) => {
+
   
+   let students = []
+
    snapshot.docs.forEach((doc) => {
+    
     dashboard.dashboardData.studentNumber += 1 
    
     if (doc.data().hours !== undefined){
@@ -152,12 +155,15 @@ const assignDataToObjects = () => {
    for (let i = 0; i < students.length; i++) {
   
    
+    
     let studentName = document.createElement("div")
     let hoursTotal = document.createElement("div")
     let level = document.createElement("div")
     let tuition = document.createElement("div")
   
-  
+
+    
+
     studentName.classList = "studentname"
     hoursTotal.classList = "hourstotal"
     level.classList = "level"
@@ -168,11 +174,16 @@ const assignDataToObjects = () => {
     level.textContent = students[i].level
     tuition.textContent = + students[i].tuition
     
+  
+    
+
+
     boardWrapper.appendChild(studentName)
     boardWrapper.appendChild(hoursTotal)
     boardWrapper.appendChild(level)
     boardWrapper.appendChild(tuition)
-  
+    
+
   
    
    }
@@ -182,9 +193,9 @@ const assignDataToObjects = () => {
   
   })
 
-}
 
-assignDataToObjects()
+
+
 
 let studentNameInput = document.getElementById("studentnameinput")
 let monthlyHoursInput = document.getElementById("monthlyhoursinput")
@@ -205,7 +216,7 @@ const confirmStudentSettings = () => {
 
   confirmButton.addEventListener('click',(e) =>{
     e.preventDefault()
-    console.log(monthlyHoursInput.value)
+ 
 
 if (studentNameInput.value === "" ){
   alert("Student value field must be filled in")
@@ -238,7 +249,7 @@ let confirmButton = document.querySelector(".confirmadd")
 confirmButton.addEventListener('click', function(){
 
 
-console.log("clicked")
+
 
   setDoc(doc(db, "guest", studentNameInput.value), {
     hours: Number(monthlyHoursInput.value), 
@@ -246,11 +257,40 @@ console.log("clicked")
     name:studentNameInput.value,
     tuition: Number(tuitionInput.value), 
     
+    
+
+    
   });
   
+
+  let studentName = document.createElement("div")
+  let hoursTotal = document.createElement("div")
+  let level = document.createElement("div")
+  let tuition = document.createElement("div")
+
+  studentName.classList = "studentname"
+  hoursTotal.classList = "hourstotal"
+  level.classList = "level"
+  tuition.classList = "tuition"
+
+  studentName.textContent = studentNameInput.value
+  hoursTotal.textContent = monthlyHoursInput.value
+  level.textContent = levelChoice.value
+  tuition.textContent = tuitionInput.value
+
+
+  boardWrapper.appendChild(studentName)
+  boardWrapper.appendChild(hoursTotal)
+  boardWrapper.appendChild(level)
+  boardWrapper.appendChild(tuition)
+  
+
+  
+
   initalizeSuccessScreen()
   confirmPopup.style.display = "none"
   boardWrapper.style.display = "grid"
+
 })
   
 
@@ -325,7 +365,7 @@ const initalizeSuccessScreen = () => {
       boardWrapper.style.display ="grid"
     }
     
-    console.log(successScreen)
+
     successScreen()
     
    
