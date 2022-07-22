@@ -13,7 +13,8 @@ import {
 import { initCurrency } from "./convertcurrency.js"
 
 import * as dashboard from "./dashboard.js"
- 
+
+let targetedDIVElement = null 
 
 document.getElementById('loginemail').value = "hireme@justdoit.com"
 document.getElementById('loginpassword').value = "justdoit"
@@ -168,6 +169,8 @@ getDocs(colRef)
     hoursTotal.classList = "hourstotal"
     level.classList = "level"
     tuition.classList = "tuition"
+
+    
   
     studentName.textContent = students[i].name
     hoursTotal.textContent = students[i].hours
@@ -341,6 +344,9 @@ const assignDeleteDblClick = () => {
        targetedName = e.target.textContent
 
        boardWrapper.style.display = "none"
+    
+       targetedDIVElement = e.target
+      
 
 
     });
@@ -384,8 +390,17 @@ function deleteDocOnConfirmClick () {
     handleDeleteOnClick()
     initalizeSuccessScreen()
 
-  
+    
+     let nameDeletion = targetedDIVElement
+     let hoursDeletion = nameDeletion.nextElementSibling
+     let levelDeletion = hoursDeletion.nextElementSibling
+     let tuitionDeletion = levelDeletion.nextElementSibling
 
+      
+      nameDeletion.remove()
+      hoursDeletion.remove()
+      levelDeletion.remove()
+      tuitionDeletion.remove()
   })
   
 }
@@ -397,10 +412,23 @@ deleteDocOnConfirmClick()
 const handleDeleteOnClick = () => { 
   const docRef = doc(db, "guest", targetedName)
 
+  
+  console.log(targetedName)
 deleteDoc(docRef)
 .then (() => {
 
+  console.log("deleted")
+
+
 })
+
+
+
+
+
 
 }
 
+
+
+  
