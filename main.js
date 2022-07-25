@@ -94,22 +94,31 @@ let expenses = {
 }
 
 
+let students = []
 
 
- 
+
+
+
 getDocs(colRef)
 .then((snapshot) => {
+
 
   
    let students = []
 
+
    snapshot.docs.forEach((doc) => {
     
-    dashboard.dashboardData.studentNumber += 1 
+
+
+
+   
    
     if (doc.data().hours !== undefined){
     students.push({...doc.data(), id:doc.id})
     dashboard.dashboardData.teachingHours += doc.data().hours
+    dashboard.dashboardData.studentNumber += 1 
     }
   
     if (doc.data().adexpense !== undefined){
@@ -128,7 +137,7 @@ getDocs(colRef)
    
    
   
-  const initiDashboardData = () => { 
+  
     let revenuText = document.querySelector(".revenutext")
     revenuText.textContent = dashboard.dashboardData.revenue
      
@@ -145,14 +154,20 @@ getDocs(colRef)
      let hourlyWage = " W " + Math.round(dashboard.dashboardData.revenue / dashboard.dashboardData.teachingHours) + ",000"
  
      hourlyText.textContent = hourlyWage
-
+  
      let studentNumberText = document.getElementsByClassName("currentstudentnumber")[0]
      studentNumberText.textContent = dashboard.dashboardData.studentNumber
-  }
   
-  initiDashboardData()
-  
-  
+    let grossProfitText = document.querySelector(".grossprofittext")
+    let totalLosses = expenses.adexpenses + expenses.schoolexpenses  
+   
+    grossProfitText.textContent = dashboard.dashboardData.revenue - totalLosses
+     
+    console.log(totalLosses)
+
+    console.log(dashboard.dashboardData.revenue - totalLosses)
+
+
    for (let i = 0; i < students.length; i++) {
   
    
@@ -247,54 +262,9 @@ databaseAge.textContent = " Student Age Range : " + ageChoice.value
 confirmPopup.style.display = "grid"
   modalWrapper.style.display = "none"
   dashboardwrapper.style.display ="none"
-let confirmButton = document.querySelector(".confirmadd")
-
-confirmButton.addEventListener('click', function(){
 
 
 
-
-  setDoc(doc(db, "guest", studentNameInput.value), {
-    hours: Number(monthlyHoursInput.value), 
-    level: levelChoice.value,
-    name:studentNameInput.value,
-    tuition: Number(tuitionInput.value), 
-    
-    
-
-    
-  });
-  
-
-  let studentName = document.createElement("div")
-  let hoursTotal = document.createElement("div")
-  let level = document.createElement("div")
-  let tuition = document.createElement("div")
-
-  studentName.classList = "studentname"
-  hoursTotal.classList = "hourstotal"
-  level.classList = "level"
-  tuition.classList = "tuition"
-
-  studentName.textContent = studentNameInput.value
-  hoursTotal.textContent = monthlyHoursInput.value
-  level.textContent = levelChoice.value
-  tuition.textContent = tuitionInput.value
-
-
-  boardWrapper.appendChild(studentName)
-  boardWrapper.appendChild(hoursTotal)
-  boardWrapper.appendChild(level)
-  boardWrapper.appendChild(tuition)
-  
-
-  
-
-  initalizeSuccessScreen()
-  confirmPopup.style.display = "none"
-  boardWrapper.style.display = "grid"
-
-})
   
 
 
@@ -413,11 +383,11 @@ const handleDeleteOnClick = () => {
   const docRef = doc(db, "guest", targetedName)
 
   
-  console.log(targetedName)
+
 deleteDoc(docRef)
 .then (() => {
 
-  console.log("deleted")
+
 
 
 })
@@ -431,4 +401,54 @@ deleteDoc(docRef)
 
 
 
+let confirmButton = document.querySelector(".confirmadd")
+confirmButton.addEventListener('click', function(){
+
+  console.log("clicked")
+
+
+
+  setDoc(doc(db, "guest", studentNameInput.value), {
+    hours: Number(monthlyHoursInput.value), 
+    level: levelChoice.value,
+    name:studentNameInput.value,
+    tuition: Number(tuitionInput.value), 
+    
+    
+
+    
+  });
   
+ 
+
+
+  let studentName = document.createElement("div")
+  let hoursTotal = document.createElement("div")
+  let level = document.createElement("div")
+  let tuition = document.createElement("div")
+
+  studentName.classList = "studentname"
+  hoursTotal.classList = "hourstotal"
+  level.classList = "level"
+  tuition.classList = "tuition"
+
+  studentName.textContent = studentNameInput.value
+  hoursTotal.textContent = monthlyHoursInput.value
+  level.textContent = levelChoice.value
+  tuition.textContent = tuitionInput.value
+
+
+
+  boardWrapper.appendChild(studentName)
+  boardWrapper.appendChild(hoursTotal)
+  boardWrapper.appendChild(level)
+  boardWrapper.appendChild(tuition)
+  
+
+  assignDeleteDblClick()
+
+  initalizeSuccessScreen()
+  confirmPopup.style.display = "none"
+  boardWrapper.style.display = "grid"
+
+})

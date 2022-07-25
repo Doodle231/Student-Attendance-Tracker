@@ -10,23 +10,26 @@ body {
 
 
 .boardwrapper, .page1content{
+   
     position: absolute; 
-    height:510px; 
+    height:520px; 
     width:100%;
     display:grid; 
     grid-template-columns: repeat(6, 1fr);
-
+    grid-template-rows: repeat(20,1fr);
     z-index: 2;
     border-bottom: 10px solid brown;
 
 
     gap:5px; 
      background-color: rgb(80, 117, 80);
+   
      text-align: center;
      font-size:16px; 
      justify-items: center;
      align-items: center;
      overflow-y: auto ;
+     margin-top:90px; 
    
 
 }
@@ -101,6 +104,17 @@ body {
 
 }
 
+.dashboardcontent > div {
+    background-color:  #321581;
+    color:black; 
+    font-weight:400;
+    color:white; 
+    padding-top: 20px; 
+    border-radius: 40px;
+     
+}
+
+
 .close { 
    position:absolute; 
     width:40px; 
@@ -142,18 +156,23 @@ body {
     text-align: center;
     position:fixed; 
     top:0%; 
+    
 }
 
 .studentnametop, .hourstotaltop, .leveltop, .joindatetop, .tuitiontop{
     margin: auto; 
     color:white; 
     font-weight: 800;
+    font-size: 2rem;
     
 }
 
 .studentname{
     display:grid; 
     grid-column:1; 
+     z-index: 999;
+     padding-top: 5px;
+    
     
 }
 
@@ -202,8 +221,7 @@ body {
     display:grid; 
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(4,150px);
-    background-image: url("./assets/dashboardbg.jpg");
-    background-size: cover;
+    background-color: rgb(157, 145, 202);
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -216,27 +234,22 @@ body {
 }
 
 
-.dashboardcontent > div {
-    background-color:  #b9aed8;
-    color:rgb(255, 242, 242); 
-    font-weight:700;
-     
-     
-}
+
 
 .title { 
     grid-column:1/-1;  
     font-size:55px; 
-    color: black;
-    height:80%; 
+    color: rgb(11, 219, 91);
+    height:90%; 
     text-align: center;
+   
 }
 
 .dashboardtext{
     font-size:3rem; 
     color: black;
-    height:80%; 
-    margin-top:25px; 
+    height:100%; 
+  
     font-weight: 700;
     color:white;
     margin-right: auto; 
@@ -246,6 +259,7 @@ body {
 div {
     color:white;
     font-weight: 500;
+  
 }
 .hourlywage { 
     
@@ -320,11 +334,7 @@ h1 {
     margin-left:10%; 
 }
 
-.totalteachhours{
-    width:20%;
-    height:100%;  
-    margin-bottom: 10%;
-}
+
 
 .loginbackground{
      
@@ -758,6 +768,17 @@ label {
     
   }
 
+  .deletionhead { 
+    font-size: 2rem;
+  }
+
+
+  .warningprompt { 
+    font-size: 1rem;
+  }
+  .textwrapper  { 
+    font-size: 14px; 
+  }
   #successpic{
     position:absolute; 
      width:150px; 
@@ -833,23 +854,13 @@ label {
     display:none; 
   }
 
-  .dashboardcontent > div {
-    background-color:  #b9aed8;
-    color:black; 
-    font-weight:400;
-    color:white; 
-     
-}
+  
 
 .hourlywage { 
     margin-top:10px; 
 }
 
-.totalteachhours{
-    width: 80%;
-    margin:auto; 
-    height:60%;
-}
+
 
 .dashboard, .dashboardcontent { 
     height:1500px; 
@@ -916,4 +927,19 @@ h1 {
     background-color: green;
 }
 
+}
+.totalteachhours{
+    width:10%;
+    height:125px;   
+    position: absolute;
+    top:20px;  
+   
+   
+
+}
+
+
+
+.dashboardtext { 
+    background-color: rgb(157, 145, 202);
 }
