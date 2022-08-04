@@ -13,32 +13,45 @@
 <body>
  
   <div class ="adexpensepopup"> 
-    <button class = "closeadexpensepopup"></button>
+    <button class = "closeadexpensepopup">X</button>
     <div class ="adexpensecontent">
 
     <div class = "adexpensecontenthead">
      <h1>Enter Expense Amount</h1>
     </div>
-    <label> Enter expense
+   
     <input type="text" class = "expenseinput" placeholder=" type expense here"></input>
-    </label>
+    
     <button class = "expenseconfirm">Confirm </button>
   </div>
     </div>
         
     <div class ="generalexpensepopup"> 
-      <button class = "closegeneralexpensepopup"></button>
-      <div class ="generalexpensecontent">
+      <button class = "closegeneralexpensepopup">X</button>
+      <div class ="adexpensecontent">
   
-      <div class = "generalexpensecontenthead">
-       <h1>please enter the expense amount</h1>
+      <div class = "adexpensecontenthead">
+       <h1>Enter Expense Amount</h1>
       </div>
-      <label> Enter expense
+      
       <input type="text" class = "generalexpenseinput" placeholder=" type expense here"></input>
-      </label>
-      <button class = "generalexpenseconfirm"> confirm</button>
+   
+      <button class = "expenseconfirm"> confirm</button>
     </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -62,7 +75,7 @@
     <img class ="addStudentBtn" src = "/assets/add-user 1(1).png" ></img>
   </div>
 
-   <div class = "page2display">page 2 content</div>
+ <div class ="helpernotice">* Double click on a student to delete * </div>
    
    <div class = "bottomnav">
     
@@ -105,7 +118,7 @@
 <div class ="addstudentmodal">
 <div class ="addbg">
     <div class ="addhead">Add Student</div>
-    <button class ="close" id ="modalclosebutton" ></button>
+    <button class ="close" id ="modalclosebutton" >X</button>
 </div>
 
 <div class="wrapper">
@@ -207,6 +220,10 @@
   <div class="day">Friday</div>
   <div class="day">Saturday</div>
 
+  <div class="totalteachhours">Total Teaching Hours
+    <div class ="icon"><img class ="iconpic" src ="/assets/clock.png"></img></div>
+    <h1 class ="teachinghourscontent">60</h1>
+  </div>
 
   </div>
 
@@ -225,10 +242,6 @@
   </div>
 
 
-  <div class="totalteachhours">Total Teaching Hours
-  <div class ="icon"><img class ="iconpic" src ="/assets/clock.png"></img></div>
-  <h1 class ="teachinghourscontent">60</h1>
-</div>
 
   <div class="grossprofit">Gross Profit
   <div class ="icon"><img class ="iconpic" src ="/assets/profits.png"></img></div>
@@ -236,31 +249,44 @@
 
 </div>
     
-<button class ="close"  id ="btn-closeaddmodal"></button>
+<button class ="close"  id ="btn-closeaddmodal">X</button>
  </div>
 </div>
 
 <div class = "loginpage">
-<div class = "overlay">
-  
-  <h1 class = "loginpagehead">Manager Login</h1>
 
-<form class ="login">
-  <input type="email" id ="loginemail" name="email" placeholder="Email"  required=""> 
-  <input type="password" id ="loginpassword" name="password" placeholder="Password" required="">
-<br>
-  <button class ="loginbutton">Login</button>
-  <div class="disclaimerbox">
-   <h1>I'm sure you are busy. I went ahead and provided
-    all the login info above. Please realize that this is a demo app and not a mistake
-    on my part. In a real situation you would of course need to sign up first. Just trying to save you some time : ) 
-
-
-   </h1>
-    </div>
+<div class="loginhero">
+<h1>Please login or sign up </h1>
+<h2>Track your student attendance and more!</h2>
 
 </div>
-<img class ="loginbackground" src ="/assets/13113 1.png"></img>
+  <div class = "overlay">
+<div class ="signinmodal">
+
+  <form class ="signin">
+    <h1 class ="signinpagehead">Sign in</h1>
+    <input type="email" id ="loginemail" name="email" placeholder="Email"  required=""> 
+    <input type="password" id ="loginpassword" name="password" placeholder="Password" required="">
+  <br>
+  <button class ="closesigninbutton">X</button>
+  <button class ="signupbutton">Sign in</button>
+   
+
+</div>
+  <h1 class = "loginpagehead">Signup</h1>
+  <p class ="welcome">Enter your email and create a password below <br><br>
+    
+  </p>
+<form class ="SignUp">
+  <input type="email" id ="signupemail" name="email" placeholder="Email"  required=""> 
+  <input type="password" id ="signuppassword" name="password" placeholder="Password" required="">
+<br>
+  <button class ="signupbutton">Signup</button>
+
+  <p class ="signinonclick">Sign In</p>
+ 
+</div>
+
 </form>
 
 
@@ -301,8 +327,7 @@
 </h1>
 
 <p class = "namedeletion">student name : John  Doe</p>
-<p class = "tuitiondeletion">student tuition : 500</p>
-<p class = "leveldeletion">Level A2</p>
+
 
 <button class ="removefrmdb-button">confirm </button>
 <button class ="cancelremovefromdb">cancel </button>

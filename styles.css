@@ -109,7 +109,7 @@ body {
     color:black; 
     font-weight:400;
     color:white; 
-    padding-top: 20px; 
+  
     border-radius: 40px;
      
 }
@@ -119,11 +119,11 @@ body {
    position:absolute; 
     width:40px; 
     height:40px; 
-    background-image: url("assets/./close\ 2.png");
-    background-position:center; 
     right:3.5rem;  
     top:.2rem; 
-    
+    background-color: blue;
+    color:white; 
+     font-size: 2rem;
 }
 
 .addStudentBtn {
@@ -227,9 +227,9 @@ body {
     text-align: center;
     margin-left:5%; 
     margin-bottom:10%; 
-    border:4px solid yellow; 
+    border:2px solid yellow; 
     margin-top:10px; 
-   
+    border-radius: 40px;
    
 }
 
@@ -240,8 +240,9 @@ body {
     grid-column:1/-1;  
     font-size:55px; 
     color: rgb(11, 219, 91);
-    height:90%; 
+    height:100%; 
     text-align: center;
+    margin-top:10%; 
    
 }
 
@@ -336,37 +337,109 @@ h1 {
 
 
 
-.loginbackground{
-     
-    width:100%; 
-    height:100%; 
-    margin:auto; 
+.loginpage { 
+    background-image: url("./assets/loginbg.png");
+    background-position:fixed; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    height:700px; 
 }
-
 .loginpagehead {
     font-size: 3rem;
     padding-top: 2rem;
     color:white; 
 }
 
+.welcome{
+    font-size: 1rem;
+    padding-left:5%; 
+    padding-right:5%;
+}
 
-
-.overlay { 
+.overlay, .signinmodal{ 
    
 position: absolute;
-width: 60%;
-height: 60%;
-background: rgba(82, 27, 184, 0.6);
- margin-left:20%; 
+width: 20%;
+min-width: 300px; 
+height: 80%;
+background:#BE8181;
+ margin-left:70%; 
  margin-top:5%; 
  text-align: center;
-
+ border-radius: 40px;
  color:black; 
  font-family: 'Roboto';
  font-style: normal;
  font-weight: 600;
  font-size: 36px;
+ right:10%; 
+
 }
+
+.signinmodal{
+    display:none; 
+    background:#865959;
+    position:absolute; 
+    width:100%; 
+    right:0%; 
+    height:50%; 
+    top:50%;
+}
+
+
+.closesigninbutton{
+    width:30px; 
+    height:30px; 
+    background-color: rgb(94, 12, 12);
+    position: absolute;
+    top:0; 
+    right:0; 
+    color:white; 
+    font-size: 1rem;
+}
+
+.closesigninbutton:hover { 
+    background-color: rgb(78, 2, 2);
+    color:rgb(116, 92, 92);
+}
+
+.signinonclick{
+    color:rgb(238, 238, 238); 
+    font-size: 1.5rem;
+    position:absolute; 
+    margin-left:35%;
+   bottom:5%; 
+  
+}
+
+.signinonclick:hover{
+   cursor:pointer
+}
+
+
+
+
+.loginhero > h1 {
+    font-size: 3vw;
+    top:30%; 
+    position:absolute; 
+    margin-left:5%; 
+    color: #1e60c4;
+    font-weight: bold;
+    width:60%; 
+    margin-right:10%;
+  
+}
+
+.loginhero > h2 {
+    top:40%;
+    position:absolute; 
+    margin-left:5%;
+    font-size: 2vw;
+}
+
+
+
 .usernameinput { 
     position: absolute;
 width: 300px;
@@ -385,7 +458,9 @@ left:20%;
  
  
 }
-
+#btn-closeaddmodal:hover { 
+    background-color: green;
+}
 
 .passwordpinput{
     position: absolute;
@@ -395,14 +470,19 @@ top:5%;
 left:20%; 
 }
 
-.loginbutton { 
+.signupbutton { 
 width: 143px;
 height: 38px;
-background: #2D921D;
+background: #3d1b7e;
 top:50%; 
 margin-top:5%; 
+margin-bottom:10%; 
 color:white; 
 
+}
+
+.signupbutton:hover { 
+    background-color: #6954a3;
 }
 
 .loginbutton:hover{ 
@@ -445,6 +525,11 @@ color:white;
  
 }
 
+
+.signinpagehead { 
+    bottom:80%; 
+    font-size: 3rem;
+}
 
 .popuphead { 
 
@@ -584,18 +669,6 @@ background-color: rgb(134, 134, 226);
 
 
 
-.generalexpensepopup{
-    
-    position:absolute; 
-    z-index: 999;
-    margin-top:30%;
-    background-color: rgb(91, 52, 233); 
-    margin-left:70%; 
-    border:2px solid black; 
-    height:150px; 
-    width:350px; 
-
-}
 
 .adexpensepopup > div { 
     color:black; 
@@ -603,7 +676,7 @@ background-color: rgb(134, 134, 226);
 
 .adexpensecontenthead > h1 {
 
-    font-size: 38px;
+    font-size: 3rem;
     text-align: center;
     font-family: 'Roboto';
 }
@@ -612,11 +685,20 @@ background-color: rgb(134, 134, 226);
 
 .expenseconfirm, .generalexpenseconfirm{
     background-color:rgb(24, 71, 24); 
-    width:70%; 
+    width:8rem; 
     margin-top:5%; 
-    height:60px; 
+    height:6rem; 
     font-size: 25px;
     color:white; 
+}
+
+
+.expenseconfirm{ 
+
+    margin-top:10%; 
+    height:2.5rem; 
+    bottom:20%; 
+    
 }
 
 .closeadexpensepopup, .closegeneralexpensepopup{
@@ -628,6 +710,9 @@ background-color: rgb(134, 134, 226);
     right:-10px; 
     top:-20px; 
 }
+
+
+
 
 
 .pagenumber { 
@@ -695,7 +780,7 @@ label {
    
 }
 
-.adexpensepopup{
+.adexpensepopup, .generalexpensepopup{
     display:none; 
     position:absolute; 
     z-index: 999;
@@ -703,13 +788,16 @@ label {
     height:40%; 
     background-color: #3e26f0;
     margin-left:10%; 
-    margin-top:20%; 
+    margin-top:25%; 
     margin-left:15%; 
     border: 4px solid yellow; 
     text-align: center;
+    min-width:300px; 
+}
+.generalexpensepopup{
+    margin-left:35%; 
     
 }
-
 
 #btn-closedashboard { 
     background-color: green;
@@ -758,9 +846,56 @@ label {
    top:-15px; 
 }
 
+.helpernotice{ 
+    position:absolute;  
+    bottom:20%; 
+}
+
+
 
 @media (min-width: 220px) and (max-width: 580px) {
-  .dollarbutton, .wonbutton{ 
+  
+   body{
+     overflow-y:  visible; 
+   }
+    
+   .loginhero > h1 {
+   
+   font-size: 1.3rem;
+
+    top:5%;
+}
+
+
+.generalexpensepopup{
+    margin-left:15%; 
+    margin-top:50%; 
+}
+
+
+
+
+.loginhero > h2 {
+ top:10%;
+ font-size: 1rem;
+
+   
+}
+
+
+.overlay { 
+    width:80%;
+    top:20%; 
+    margin-left:10%; 
+    margin-right:10%; 
+    right:0%; 
+}
+
+.signinonclick{
+    margin-left:35%;
+    font-size: 2rem; 
+}
+    .dollarbutton, .wonbutton{ 
     width:60px; 
     position:absolute; 
     left:45px; 
@@ -825,7 +960,7 @@ label {
   .dashboardcontent{ 
     display: inline-block; 
     background-position: center; 
-    width:100vw; 
+    width:90vw; 
     margin: 0px;  
     text-align: center;
     align-items: center; 
@@ -863,7 +998,7 @@ label {
 
 
 .dashboard, .dashboardcontent { 
-    height:1500px; 
+    height:800px; 
 }
 
 
@@ -923,23 +1058,23 @@ h1 {
     height:40px; 
 }
 
-#btn-closeaddmodal:hover { 
-    background-color: green;
-}
+
 
 }
 .totalteachhours{
-    width:10%;
+    width:50%;
     height:125px;   
-    position: absolute;
-    top:20px;  
-   
+    position: relative;
+    bottom:50%; 
+    left:80%; 
    
 
 }
+
 
 
 
 .dashboardtext { 
     background-color: rgb(157, 145, 202);
 }
+

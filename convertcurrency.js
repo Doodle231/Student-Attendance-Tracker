@@ -4,7 +4,7 @@ export const initCurrency = () => {
     let tuition = document.getElementsByClassName("tuition")
 
 
-    let dollarIsActive = null 
+    let dollarIsActive = false 
     let tuitionArray = []
  dollarButton.addEventListener('click', function(){
 

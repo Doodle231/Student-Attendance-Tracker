@@ -13,11 +13,17 @@ import {
 import { initCurrency } from "./convertcurrency.js"
 
 import * as dashboard from "./dashboard.js"
-
+import { displaySigninPopup } from "./loginpage.js"
+import {assignDashboardData} from "./dashboard.js"
+import { UpdateaddedDashboarddata} from "./dashboard.js"
+import {initButtons} from "./expenses.js"
 let targetedDIVElement = null 
 
-document.getElementById('loginemail').value = "hireme@justdoit.com"
-document.getElementById('loginpassword').value = "justdoit"
+
+
+initButtons()
+
+
 
 const confirmPopup = document.querySelector(".confirmpopup")
 const modalWrapper = document.getElementsByClassName("addstudentmodal")[0]
@@ -26,12 +32,16 @@ const addStudentButton = document.getElementsByClassName("addStudentBtn")[0]
 modalWrapper.style.display = "none"
 const closeButton = document.getElementsByClassName("close")
 const boardWrapper = document.querySelector(".boardwrapper")
-const dashboardpic = document.querySelector(".dashboardpic")
+const dashboardpic = document.getElementsByClassName("navcard")[0]
 const dashboardwrapper = document.querySelector(".dashboard")
 let studentNameDisplay = document.getElementsByClassName("studentname")
 
 let targetedName = null; 
 boardWrapper.style.display = "grid"
+
+
+let adexpensepopup = document.getElementsByClassName("adexpensepopup")[0]
+
 
 let generalExpensePopup = document.querySelector(".generalexpensepopup")
 generalExpensePopup.style.display = "none"
@@ -41,6 +51,8 @@ dashboardpic.addEventListener('click', function(){
   dashboardwrapper.style.display = "grid"
   modalWrapper.style.display = "none"
   boardWrapper.style.display = "none"
+
+
   })
   
 
@@ -66,6 +78,25 @@ modalWrapper.style.display = "grid"
 
 })
 
+document.getElementsByClassName("closeadexpensepopup")[0].addEventListener('click', function(){
+
+  adexpensepopup.style.display = "none"
+   
+   })
+ 
+   document.getElementsByClassName("closegeneralexpensepopup")[0].addEventListener('click', function(){
+      console.log("clicked")
+     generalExpensePopup.style.display = "none"
+      
+      })
+  
+
+
+
+
+
+
+
 
 
 const firebaseConfig = {
@@ -88,7 +119,7 @@ const colRef = collection(db,"guest")
 
 
 
-let expenses = {
+export let expenses = {
   adexpenses:null, 
   schoolexpenses:null, 
 }
@@ -98,7 +129,7 @@ let students = []
 
 
 
-
+function grabStudentData(){
 
 getDocs(colRef)
 .then((snapshot) => {
@@ -112,9 +143,6 @@ getDocs(colRef)
     
 
 
-
-   
-   
     if (doc.data().hours !== undefined){
     students.push({...doc.data(), id:doc.id})
     dashboard.dashboardData.teachingHours += doc.data().hours
@@ -132,42 +160,14 @@ getDocs(colRef)
     if (doc.data().tuition !== undefined){
       dashboard.dashboardData.revenue += doc.data().tuition 
     }
-  
+
+   
    })
    
    
   
-  
-    let revenuText = document.querySelector(".revenutext")
-    revenuText.textContent = dashboard.dashboardData.revenue
-     
-     let schoolExpensesText = document.querySelector(".expensecost")
-     schoolExpensesText.textContent =  expenses.schoolexpenses
-     
-     let adExpensesText = document.querySelector(".adexpensecost")
-     adExpensesText.textContent =  expenses.adexpenses
-   
-     let teachingHoursText = document.querySelector(".teachinghourscontent")
-     teachingHoursText.textContent = dashboard.dashboardData.teachingHours
-  
-     let hourlyText = document.getElementsByClassName("hourlytext")[0]
-     let hourlyWage = " W " + Math.round(dashboard.dashboardData.revenue / dashboard.dashboardData.teachingHours) + ",000"
- 
-     hourlyText.textContent = hourlyWage
-  
-     let studentNumberText = document.getElementsByClassName("currentstudentnumber")[0]
-     studentNumberText.textContent = dashboard.dashboardData.studentNumber
-  
-    let grossProfitText = document.querySelector(".grossprofittext")
-    let totalLosses = expenses.adexpenses + expenses.schoolexpenses  
-   
-    grossProfitText.textContent = dashboard.dashboardData.revenue - totalLosses
-     
-    console.log(totalLosses)
 
-    console.log(dashboard.dashboardData.revenue - totalLosses)
-
-
+  function createDynamicElementsandAppend (){}
    for (let i = 0; i < students.length; i++) {
   
    
@@ -178,23 +178,20 @@ getDocs(colRef)
     let tuition = document.createElement("div")
   
 
-    
-
+  
     studentName.classList = "studentname"
     hoursTotal.classList = "hourstotal"
     level.classList = "level"
     tuition.classList = "tuition"
 
     
-  
+
     studentName.textContent = students[i].name
     hoursTotal.textContent = students[i].hours
     level.textContent = students[i].level
-    tuition.textContent = + students[i].tuition
+    tuition.textContent =  students[i].tuition
     
   
-    
-
 
     boardWrapper.appendChild(studentName)
     boardWrapper.appendChild(hoursTotal)
@@ -206,13 +203,19 @@ getDocs(colRef)
    
    }
   
+  
+
+  assignDashboardData()
+  createDynamicElementsandAppend()
   assignDeleteDblClick()
   
   
   })
 
 
+}
 
+grabStudentData()
 
 
 let studentNameInput = document.getElementById("studentnameinput")
@@ -284,9 +287,12 @@ modalWrapper.style.display = "grid"
 })
 
 
-let adexpensepopup = document.querySelector(".adexpensepopup")
-const adExpenseBtn = document.getElementsByClassName("navcard")[1]
 
+
+
+
+const adExpenseBtn = document.getElementsByClassName("navcard")[1]
+const adGenerealExpenseBtn = document.getElementsByClassName("navcard")[2]
 adExpenseBtn.addEventListener('click', function(){
 adexpensepopup.style.display = "block"
 
@@ -294,14 +300,17 @@ adexpensepopup.style.display = "block"
 
 })
 
-document.querySelector(".closeadexpensepopup").addEventListener('click', function(){
-
- adexpensepopup.style.display = "none"
+adGenerealExpenseBtn.addEventListener('click', function(){
+  generalExpensePopup.style.display = "block"
+  
+  console.log("clicked")
   
   })
 
-  
- 
+
+
+
+
 const assignDeleteDblClick = () => { 
  
   for (let i = 0; i < studentNameDisplay.length; i++) {
@@ -318,6 +327,8 @@ const assignDeleteDblClick = () => {
        targetedDIVElement = e.target
       
 
+       let nameDeletiontext = document.getElementsByClassName("namedeletion")[0]
+       nameDeletiontext.textContent = targetedName
 
     });
  
@@ -385,12 +396,7 @@ const handleDeleteOnClick = () => {
   
 
 deleteDoc(docRef)
-.then (() => {
 
-
-
-
-})
 
 
 
@@ -419,7 +425,17 @@ confirmButton.addEventListener('click', function(){
     
   });
   
- 
+let addedHours = Number(monthlyHoursInput.value)
+let addedRevenue = Number(tuitionInput.value)
+    
+UpdateaddedDashboarddata(addedHours, addedRevenue)
+
+
+
+
+
+assignDashboardData()
+
 
 
   let studentName = document.createElement("div")
@@ -445,6 +461,11 @@ confirmButton.addEventListener('click', function(){
   boardWrapper.appendChild(tuition)
   
 
+  
+
+
+
+
   assignDeleteDblClick()
 
   initalizeSuccessScreen()
@@ -452,3 +473,22 @@ confirmButton.addEventListener('click', function(){
   boardWrapper.style.display = "grid"
 
 })
+
+displaySigninPopup()
+
+
+function cancelRemove (){
+  let cancelButton = document.getElementsByClassName("cancelremovefromdb")[0]
+  
+  cancelButton.addEventListener('click', function(){
+   console.log("clicked")
+    boardWrapper.style.display = "grid"
+   
+    let deletetionPopup = document.querySelector(".deletionWarningPopup")
+   
+    deletetionPopup.style.display = "none"
+  })
+}
+
+cancelRemove()
+
