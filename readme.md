@@ -14,6 +14,6 @@
 
 ## here are some sceenshots ## 
 
-	![tracker](tracker1.png)
-    ![tracker](tracker2.png)
-    ![tracker](tracker3.png)
+![tracker](tracker1.png)
+![tracker](tracker2.png)
+![tracker](tracker3.png)
