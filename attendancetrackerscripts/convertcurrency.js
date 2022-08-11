@@ -1,11 +1,13 @@
+import { tuitionArray } from "./main.js"
+
 export const initCurrency = () => {
     let dollarButton = document.getElementsByClassName("dollarbutton")[0]
     let wonButton = document.getElementsByClassName("wonbutton")[0]
     let tuition = document.getElementsByClassName("tuition")
 
 
-    let dollarIsActive = false 
-    let tuitionArray = []
+    let dollarIsActive = true 
+   
  dollarButton.addEventListener('click', function(){
 
     if (dollarIsActive === true ){ 
@@ -18,6 +20,7 @@ export const initCurrency = () => {
    
       tuition[i].textContent = " $ " + Math.round(tuitionArray[i] )
       
+
 
        
     }
@@ -32,6 +35,7 @@ export const initCurrency = () => {
         return
       }
   
+      console.log(tuition, tuitionArray)
       for (let i = 0; i < tuition.length; i++) {
       
          tuitionArray.push(Number(tuition[i].textContent))

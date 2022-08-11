@@ -50,7 +50,7 @@ body {
     margin-top:2.5%;
     left:5%;
     gap:5px; 
-     background-image: url("/assets/desks.jpg");
+     background-image: url("/attendanceassets/desks.jpg");
      background-size: 100%; ;
      background-position: contain; 
      text-align: center;
@@ -148,7 +148,7 @@ body {
     display:grid; 
     grid-column: 1/7;
     grid-row:1;
-    background-color: #294D32;
+    background-color: #144b27;
     width:100%; 
     grid-template-columns: repeat(6, 1fr);
     height:100px; 
@@ -165,13 +165,17 @@ body {
     font-weight: 800;
     font-size: 2rem;
     
+
+    
 }
 
 .studentname{
     display:grid; 
     grid-column:1; 
-     z-index: 999;
+     z-index: 0;
      padding-top: 5px;
+
+     z-index: -1;
     
     
 }
@@ -229,7 +233,7 @@ body {
     margin-bottom:10%; 
     border:2px solid yellow; 
     margin-top:10px; 
-    border-radius: 40px;
+   
    
 }
 
@@ -248,9 +252,9 @@ body {
 
 .dashboardtext{
     font-size:3rem; 
-    color: black;
+
     height:100%; 
-  
+    background-color: rgb(157, 145, 202);
     font-weight: 700;
     color:white;
     margin-right: auto; 
@@ -337,19 +341,6 @@ h1 {
 
 
 
-.loginpage { 
-    background-image: url("./assets/loginbg.png");
-    background-position:fixed; 
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    height:700px; 
-}
-.loginpagehead {
-    font-size: 3rem;
-    padding-top: 2rem;
-    color:white; 
-}
-
 .welcome{
     font-size: 1rem;
     padding-left:5%; 
@@ -419,34 +410,7 @@ background:#BE8181;
 
 
 
-.loginhero > h1 {
-    font-size: 3vw;
-    top:30%; 
-    position:absolute; 
-    margin-left:5%; 
-    color: #1e60c4;
-    font-weight: bold;
-    width:60%; 
-    margin-right:10%;
-  
-}
 
-.loginhero > h2 {
-    top:40%;
-    position:absolute; 
-    margin-left:5%;
-    font-size: 2vw;
-}
-
-
-
-.usernameinput { 
-    position: absolute;
-width: 300px;
-height: 26px; 
-left:20%; 
-
-}
 .disclaimerbox{
     background-color: rgb(30, 17, 224);
     width:auto; 
@@ -684,29 +648,25 @@ background-color: rgb(134, 134, 226);
 
 
 .expenseconfirm, .generalexpenseconfirm{
-    background-color:rgb(24, 71, 24); 
+    background-color:rgb(33, 150, 33); 
     width:8rem; 
     margin-top:5%; 
-    height:6rem; 
+    height:2rem; 
     font-size: 25px;
     color:white; 
+    border-radius: 40px;
+    margin-left:5%; 
 }
 
 
-.expenseconfirm{ 
-
-    margin-top:10%; 
-    height:2.5rem; 
-    bottom:20%; 
-    
-}
 
 .closeadexpensepopup, .closegeneralexpensepopup{
     position:absolute; 
     width:40px; 
     height:40px; 
-    background-image: url("assets/close\ 2.png");
-    background-position:center; 
+    color:white; 
+    background-color: blue;
+ 
     right:-10px; 
     top:-20px; 
 }
@@ -872,7 +832,11 @@ label {
     margin-top:50%; 
 }
 
+.dashboardtext{
 
+
+    margin-top:10px; 
+}
 
 
 .loginhero > h2 {
@@ -1072,9 +1036,4 @@ h1 {
 }
 
 
-
-
-.dashboardtext { 
-    background-color: rgb(157, 145, 202);
-}
 

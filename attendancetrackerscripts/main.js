@@ -1,21 +1,24 @@
 
+
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"
-import { onSnapshot,
-  getFirestore, collection,  getDocs, addDoc, doc, getDoc, updateDoc, setDoc, deleteDoc} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js"
-import {
+import { getFirestore,
+    collection,  
+    getDocs, 
+    doc, 
+    setDoc, 
+    deleteDoc} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js"
+
+    import {
   getAuth,
-  createUserWithEmailAndPassword,
-  signOut,
-  signInWithEmailAndPassword, 
-  onAuthStateChanged
+  
 } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"
 
 import { initCurrency } from "./convertcurrency.js"
 
 import * as dashboard from "./dashboard.js"
-import { displaySigninPopup } from "./loginpage.js"
 import {assignDashboardData} from "./dashboard.js"
-import { UpdateaddedDashboarddata} from "./dashboard.js"
+import { UpdateaddedDashboarddata, updateDeletedDashboarddata} from "./dashboard.js"
 import {initButtons} from "./expenses.js"
 let targetedDIVElement = null 
 
@@ -23,7 +26,7 @@ let targetedDIVElement = null
 
 initButtons()
 
-
+let DollarisActive = true; 
 
 const confirmPopup = document.querySelector(".confirmpopup")
 const modalWrapper = document.getElementsByClassName("addstudentmodal")[0]
@@ -92,11 +95,7 @@ document.getElementsByClassName("closeadexpensepopup")[0].addEventListener('clic
   
 
 
-
-
-
-
-
+ 
 
 
 const firebaseConfig = {
@@ -115,7 +114,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const user = auth.currentUser;
 const db = getFirestore()
-const colRef = collection(db,"guest")
+const colRef = collection(db,"users")
 
 
 
@@ -124,10 +123,7 @@ export let expenses = {
   schoolexpenses:null, 
 }
 
-
-let students = []
-
-
+export let tuitionArray= []
 
 function grabStudentData(){
 
@@ -189,9 +185,9 @@ getDocs(colRef)
     studentName.textContent = students[i].name
     hoursTotal.textContent = students[i].hours
     level.textContent = students[i].level
-    tuition.textContent =  students[i].tuition
+    tuition.textContent = " $ " + students[i].tuition
     
-  
+   tuitionArray.push(students[i].tuition)
 
     boardWrapper.appendChild(studentName)
     boardWrapper.appendChild(hoursTotal)
@@ -203,7 +199,7 @@ getDocs(colRef)
    
    }
   
-  
+
 
   assignDashboardData()
   createDynamicElementsandAppend()
@@ -229,8 +225,7 @@ let addStudentForm = document.querySelector(".addstudentform")
 
 addStudentForm.style.display = "block"
 
-let loginPage = document.querySelector(".loginpage")
-loginPage.style.display = "none"
+
 
 const confirmStudentSettings = () => {
   let confirmButton = document.querySelector(".confirm")
@@ -248,6 +243,17 @@ if(monthlyHoursInput.value === ""){
   alert ("Monthly hours must be filled in ")
   return
 }
+
+if (monthlyHoursInput.value > 50){
+  alert ("number of hours cannot exceed 50")
+  return
+}
+
+if (tuitionInput.value > 500 ){
+  alert ("Easy there buddy. This is an English school. We don't make that kind of coin ")
+  return
+}
+
 
 
 let databaseName = document.querySelector(".nameconfirm")
@@ -303,7 +309,7 @@ adexpensepopup.style.display = "block"
 adGenerealExpenseBtn.addEventListener('click', function(){
   generalExpensePopup.style.display = "block"
   
-  console.log("clicked")
+
   
   })
 
@@ -336,7 +342,7 @@ const assignDeleteDblClick = () => {
 
 }
 
-const initalizeSuccessScreen = () => {
+export const initalizeSuccessScreen = () => {
   function successScreen() {
     let successScreen = document.querySelector(".successscreen")
     successScreen.style.display ='block'
@@ -382,6 +388,14 @@ function deleteDocOnConfirmClick () {
       hoursDeletion.remove()
       levelDeletion.remove()
       tuitionDeletion.remove()
+
+
+        let hoursToDelete = Number(hoursDeletion.textContent)
+        let tuitionToDelete = Number(tuitionDeletion.textContent)
+       
+      updateDeletedDashboarddata(hoursToDelete, tuitionToDelete)
+
+
   })
   
 }
@@ -391,14 +405,11 @@ deleteDocOnConfirmClick()
 
 
 const handleDeleteOnClick = () => { 
-  const docRef = doc(db, "guest", targetedName)
+  const docRef = doc(db, "users", targetedName)
 
   
 
 deleteDoc(docRef)
-
-
-
 
 
 
@@ -410,28 +421,24 @@ deleteDoc(docRef)
 let confirmButton = document.querySelector(".confirmadd")
 confirmButton.addEventListener('click', function(){
 
-  console.log("clicked")
 
 
-
-  setDoc(doc(db, "guest", studentNameInput.value), {
+  setDoc(doc(db, "users", studentNameInput.value), {
     hours: Number(monthlyHoursInput.value), 
     level: levelChoice.value,
     name:studentNameInput.value,
     tuition: Number(tuitionInput.value), 
     
-    
+  
 
     
   });
   
 let addedHours = Number(monthlyHoursInput.value)
 let addedRevenue = Number(tuitionInput.value)
-    
+
+
 UpdateaddedDashboarddata(addedHours, addedRevenue)
-
-
-
 
 
 assignDashboardData()
@@ -454,7 +461,6 @@ assignDashboardData()
   tuition.textContent = tuitionInput.value
 
 
-
   boardWrapper.appendChild(studentName)
   boardWrapper.appendChild(hoursTotal)
   boardWrapper.appendChild(level)
@@ -462,10 +468,6 @@ assignDashboardData()
   
 
   
-
-
-
-
   assignDeleteDblClick()
 
   initalizeSuccessScreen()
@@ -474,7 +476,7 @@ assignDashboardData()
 
 })
 
-displaySigninPopup()
+
 
 
 function cancelRemove (){
@@ -491,4 +493,8 @@ function cancelRemove (){
 }
 
 cancelRemove()
+
+
+
+
 

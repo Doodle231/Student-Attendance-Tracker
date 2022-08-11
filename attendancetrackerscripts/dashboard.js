@@ -54,7 +54,7 @@ export let dashboardData = {
      
      adExpensesText.textContent =  expenses.adexpenses
    
-      console.log(teachingHoursText.textContent)
+ 
      teachingHoursText.textContent = dashboardData.teachingHours
   
      let hourlyWage = " W " + Math.round(dashboardData.revenue / dashboardData.teachingHours) + ",000"
@@ -79,5 +79,15 @@ export let dashboardData = {
     studentNumberText.textContent = dashboardData.studentNumber
     
   
+  
+  }
+
+  export function updateDeletedDashboarddata (subtractedHours, lossRevenue ){
+  
+    teachingHoursText = dashboardData.teachingHours -= subtractedHours
+    revenuText.textContent = dashboardData.revenue -= lossRevenue
+    
+    dashboardData.studentNumber -= 1 
+    studentNumberText.textContent = dashboardData.studentNumber
   
   }

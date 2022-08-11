@@ -20,7 +20,7 @@
      <h1>Enter Expense Amount</h1>
     </div>
    
-    <input type="text" class = "expenseinput" placeholder=" type expense here"></input>
+    <input type="number" class = "expenseinput" placeholder=" type expense here"></input>
     
     <button class = "expenseconfirm">Confirm </button>
   </div>
@@ -34,7 +34,7 @@
        <h1>Enter Expense Amount</h1>
       </div>
       
-      <input type="text" class = "generalexpenseinput" placeholder=" type expense here"></input>
+      <input type="number" class = "generalexpenseinput" placeholder=" type expense here"></input>
    
       <button class = "expenseconfirm"> confirm</button>
     </div>
@@ -72,7 +72,7 @@
 
     
     </div>
-    <img class ="addStudentBtn" src = "/assets/add-user 1(1).png" ></img>
+    <img class ="addStudentBtn" src = "/attendanceassets/add-user 1(1).png" ></img>
   </div>
 
  <div class ="helpernotice">* Double click on a student to delete * </div>
@@ -81,17 +81,17 @@
     
     <div class="navcard">
     <h1>Dashboard</h1>
-    <img class ="dashboardpic" src ="/assets/home.png"></img>
+    <img class ="dashboardpic" src ="/attendanceassets/home.png"></img>
   </div>
   
   <div class="navcard">
     <h1>Add Ad Expense</h1>
-    <img class ="dashboardpic" src ="/assets/ads 1.png"></img>
+    <img class ="dashboardpic" src ="/attendanceassets/ads 1.png"></img>
   </div>
 
   <div class="navcard">
     <h1>Add General Expense</h1>
-    <img class ="dashboardpic" src ="/assets/expense.png"></img>
+    <img class ="dashboardpic" src ="/attendanceassets/expense.png"></img>
   </div>
 
 
@@ -125,7 +125,7 @@
  <form class = "addstudentform">
   <br><br>
   <label>Enter Student Name <br>
-  <input type="studentname" id="studentnameinput" placeholder="student full name"><br>
+  <input type="text" id="studentnameinput" placeholder="student full name"><br>
 
 </label>
 
@@ -133,7 +133,7 @@
 
   <label>Enter Number of hours per month
     <br>
-  <input type="stuenthours" id="monthlyhoursinput" placeholder ="enter hours"><br>
+  <input type="number" id="monthlyhoursinput" placeholder ="enter hours"><br>
 </label>
 
 <br>
@@ -187,12 +187,12 @@
     </div>
     
     <div class ="hourlywage">Hourly Wage 
-    <div class ="icon"><img class ="iconpic" src ="/assets/hour-glass 1.png"></img></div>
+    <div class ="icon"><img class ="iconpic" src ="/attendanceassets/hour-glass 1.png"></img></div>
   <h1 class ="hourlytext">40,000</h1>
   </div>
   
   <div class="schoolexpenses">School Expenses 
-<div class ="icon"><img class ="iconpic" src ="/assets/expense.png"></img></div>
+<div class ="icon"><img class ="iconpic" src ="/attendanceassets/expense.png"></img></div>
 <h1 class = "expensecost">184,000</h1>
   </div>
   
@@ -201,7 +201,7 @@
   
   <div class="adexpenses">Ad Expenses 
 
-    <div class ="icon"><img class ="iconpic" src ="/assets/ads 1.png"></img></div>
+    <div class ="icon"><img class ="iconpic" src ="/attendanceassets/ads 1.png"></img></div>
     <h1 class = "adexpensecost">250,000</h1>
   
   </div>
@@ -220,8 +220,8 @@
   <div class="day">Friday</div>
   <div class="day">Saturday</div>
 
-  <div class="totalteachhours">Total Teaching Hours
-    <div class ="icon"><img class ="iconpic" src ="/assets/clock.png"></img></div>
+  <div class="totalteachhours">Teaching Hrs Per Month
+    <div class ="icon"><img class ="iconpic" src ="/attendanceassets/clock.png"></img></div>
     <h1 class ="teachinghourscontent">60</h1>
   </div>
 
@@ -230,21 +230,21 @@
 
   <div class="monthlyrevenue">Monthly Revenue
 
-    <div class ="icon"><img class ="iconpic" src ="/assets/money.png"></img></div>
+    <div class ="icon"><img class ="iconpic" src ="/attendanceassets/money.png"></img></div>
     <h1 class = "revenutext">6,500,000</h1>
   </div>
 
 
   <div class="numberofstudents">Number of students
 
-    <div class ="icon"><img class ="iconpic" src ="/assets/student.png"></img></div>
+    <div class ="icon"><img class ="iconpic" src ="/attendanceassets/student.png"></img></div>
     <h1 class = "currentstudentnumber">25</h1>
   </div>
 
 
 
   <div class="grossprofit">Gross Profit
-  <div class ="icon"><img class ="iconpic" src ="/assets/profits.png"></img></div>
+  <div class ="icon"><img class ="iconpic" src ="/attendanceassets/profits.png"></img></div>
     <h1 class ="grossprofittext">5,534,000</h1>
 
 </div>
@@ -253,46 +253,7 @@
  </div>
 </div>
 
-<div class = "loginpage">
 
-<div class="loginhero">
-<h1>Please login or sign up </h1>
-<h2>Track your student attendance and more!</h2>
-
-</div>
-  <div class = "overlay">
-<div class ="signinmodal">
-
-  <form class ="signin">
-    <h1 class ="signinpagehead">Sign in</h1>
-    <input type="email" id ="loginemail" name="email" placeholder="Email"  required=""> 
-    <input type="password" id ="loginpassword" name="password" placeholder="Password" required="">
-  <br>
-  <button class ="closesigninbutton">X</button>
-  <button class ="signupbutton">Sign in</button>
-   
-
-</div>
-  <h1 class = "loginpagehead">Signup</h1>
-  <p class ="welcome">Enter your email and create a password below <br><br>
-    
-  </p>
-<form class ="SignUp">
-  <input type="email" id ="signupemail" name="email" placeholder="Email"  required=""> 
-  <input type="password" id ="signuppassword" name="password" placeholder="Password" required="">
-<br>
-  <button class ="signupbutton">Signup</button>
-
-  <p class ="signinonclick">Sign In</p>
- 
-</div>
-
-</form>
-
-
-
-
-</div>
 
 <div class ="confirmpopup">
 <div class = "topwrapper">
@@ -340,7 +301,7 @@ Information has successfully been updated!
 <br>
 
 
-<img id = "successpic" img src ="/assets/success.jpg"></img>
+<img id = "successpic" img src ="/attendanceassets/success.jpg"></img>
 </div>
 
 </div>
@@ -352,7 +313,7 @@ Information has successfully been updated!
 
     <link rel="stylesheet" href="styles.css">
    
-    <script type="module" src="main.js"></script>
+    <script type="module" src="./attendancetrackerscripts/main.js"></script>
 
 </body>
 </html>
