@@ -19,4 +19,4 @@
 ![tracker](tracker3.png)
 
 
-here is a link [title](https://www.danroyals.com)
+here is a link [www.danroyals.com](https://www.danroyals.com)
