@@ -19,7 +19,7 @@ body {
     grid-template-rows: repeat(20,1fr);
     z-index: 2;
     border-bottom: 10px solid brown;
-
+    left:0; 
 
     gap:5px; 
      background-color: rgb(80, 117, 80);
@@ -669,7 +669,7 @@ background-color: rgb(134, 134, 226);
     background-color:rgb(33, 150, 33); 
     width:8rem; 
     margin-top:5%; 
-    height:2rem; 
+    height:3rem; 
     font-size: 25px;
     color:white; 
     border-radius: 40px;
@@ -683,7 +683,7 @@ background-color: rgb(134, 134, 226);
     width:40px; 
     height:40px; 
     color:white; 
-    background-color: blue;
+    background-color: rgb(255, 0, 0);
  
     right:-10px; 
     top:-20px; 
@@ -824,6 +824,8 @@ label {
     .dashboard { 
         margin-top:20%; 
         margin-bottom:10%; 
+        margin-left:2.5%; 
+        margin-right:2.5%; 
     }
     
     .successscreen{
@@ -841,9 +843,11 @@ label {
 
 
     .adexpensepopup, .generalexpensepopup{
-  
-        height:70%; 
+
+        height:50%; 
         bottom:10%; 
+        left:-10%; 
+       
     }
 
    body{
@@ -1063,7 +1067,7 @@ h1 {
 
 
 .addstudentform { 
-    margin-bottom:20%; 
+    margin-bottom:5%; 
 }
 
 
@@ -1081,6 +1085,10 @@ h1 {
     text-align: left;
     font-size:2rem; 
 }
+
+
+
+
 
 
 

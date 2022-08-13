@@ -232,6 +232,11 @@ const confirmStudentSettings = () => {
     e.preventDefault()
  
 
+    console.log (typeof(studentNameInput.value))
+if (studentNameInput.value.length >= 25 ){ 
+  alert ("Come on now. Don't try and break the app. Who has a name that long!? ")
+}
+
 if (studentNameInput.value === "" ){
   alert("Student value field must be filled in")
   return 
@@ -481,7 +486,7 @@ function cancelRemove (){
   let cancelButton = document.getElementsByClassName("cancelremovefromdb")[0]
   
   cancelButton.addEventListener('click', function(){
-   console.log("clicked")
+ 
     boardWrapper.style.display = "grid"
    
     let deletetionPopup = document.querySelector(".deletionWarningPopup")
