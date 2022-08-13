@@ -1,6 +1,4 @@
 
-
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"
 import { getFirestore,
     collection,  
@@ -76,7 +74,7 @@ boardWrapper.style.display = "grid"
 addStudentButton.addEventListener('click', function(){
 boardWrapper.style.display = "none"
 
-modalWrapper.style.display = "grid"
+modalWrapper.style.display = "block"
 
 
 })
@@ -288,7 +286,7 @@ const cancelButton = document.querySelector(".canceladd")
 cancelButton.addEventListener('click', function(){
 
 confirmPopup.style.display = "none"
-modalWrapper.style.display = "grid"
+modalWrapper.style.display = "block"
 
 })
 
